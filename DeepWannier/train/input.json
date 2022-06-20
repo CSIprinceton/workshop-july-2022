@@ -1,5 +1,6 @@
 {
-    "model":{
+	"_comment":	" tested with DP2.1.1",
+	"model":{
 	"type_map":		["O", "H"],
 		"descriptor" :{
 			"type":		"se_e2_a",
