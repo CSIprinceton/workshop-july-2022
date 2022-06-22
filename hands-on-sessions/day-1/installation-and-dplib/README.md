@@ -50,5 +50,7 @@ You can then enable the environment by running:
 ```
 conda activate deepmd
 ```
+and test that the ```dp``` (DeePMD-kit) and the ```lmp_mpi``` (LAMMPS) executables are available. 
+If that works, congratulations! You are ready to do molecular dynamics simulations driven by ab initio machine learning potentials and much more!
 
-
+### More complicated scenarios
