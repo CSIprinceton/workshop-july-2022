@@ -37,11 +37,12 @@ Assuming that you are using a linux command line in a standard x86-64 architectu
 chmod +x Miniconda3-py38_4.12.0-Linux-x86_64.sh
 ./Miniconda3-py38_4.12.0-Linux-x86_64.sh
 ```
-and follow the isntructions within that script.
+and follow the instructions within that script.
 
 Now that conda is installed, the deepmd-kit is simply installed with the command:
 ```
-conda create -n deepmd deepmd-kit=*=*cpu libdeepmd=*=*cpu lammps-dp -c https://conda.deepmodeling.org```
+conda create -n deepmd deepmd-kit=*=*cpu libdeepmd=*=*cpu lammps-dp -c https://conda.deepmodeling.org
+```
 This command creates a conda environment ```deepmd``` and installs all the dependencies that are needed.
 See the [manual](https://docs.deepmodeling.com/projects/deepmd/en/stable/install/easy-install.html#install-with-conda) for alternatives and for a suitable command to install a GPU version.
 
