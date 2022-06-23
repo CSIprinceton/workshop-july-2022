@@ -1,6 +1,7 @@
 # Deep Modeling for Molecular Simulation
-### Hands-on sessions - Day 1
-### Installation of DeePMD-kit and accessing the DP library
+Hands-on sessions - Day 1 - July 7, 2022
+
+Installation of DeePMD-kit, visualization software and accessing the DP library
 
 ## Aims
 
@@ -14,6 +15,7 @@ The objectives of this tutorial session are:
 - Learn the available installation methods for DeePMD-kit and understand which one is appropriate for your laptop computer or HPC cluster.
 - Illustrate the installation methods
 - Describe common issues and how to solve them
+- Install the visualization software Ovito and Xcrysden in order to use them in the tutorials
 - Make the student aware of the existence of the DP library
 - Promote new contributions to the DP library
 
@@ -31,7 +33,7 @@ In most cases the easy install procedure that uses the conda package manager is 
 
 First, lets install anaconda or miniconda.
 Miniconda is a minimal installer and is therefore recommended.
-You can install miniconda by downloading the appropriate installer from this [website](https://docs.conda.io/en/latest/miniconda.html).
+You can obtain miniconda by downloading the appropriate file from this [website](https://docs.conda.io/en/latest/miniconda.html).
 Assuming that you are using a linux command line in a standard x86-64 architecture, you can run:
 ```
 chmod +x Miniconda3-py38_4.12.0-Linux-x86_64.sh
@@ -54,3 +56,13 @@ and test that the ```dp``` (DeePMD-kit) and the ```lmp_mpi``` (LAMMPS) executabl
 If that works, congratulations! You are ready to do molecular dynamics simulations driven by ab initio machine learning potentials and much more!
 
 ### More complicated scenarios
+
+
+
+## Installation of visualization software
+
+### Ovito
+
+### Xcrysden
+
+## Navigating the DP library
