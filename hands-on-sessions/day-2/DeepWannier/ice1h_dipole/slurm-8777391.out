@@ -1,0 +1,5 @@
+/usr/share/Modules/init/sh: line 2: unalias: __conda_hashr: not found
+/usr/share/Modules/init/sh: line 2: unalias: __add_sys_prefix_to_path: not found
+/usr/share/Modules/init/sh: line 2: unalias: conda: not found
+/usr/share/Modules/init/sh: line 2: unalias: __conda_reactivate: not found
+/usr/share/Modules/init/sh: line 2: unalias: __conda_activate: not found

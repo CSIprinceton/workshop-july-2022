@@ -1,0 +1,1 @@
+../train_energy_model/frozen_model.pb

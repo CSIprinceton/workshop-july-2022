@@ -1,0 +1,48 @@
+WARNING:tensorflow:From /home/pinchenx/data.gpfs/envs/dp-dev/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:101: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:root:To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, TF_INTRA_OP_PARALLELISM_THREADS, and TF_INTER_OP_PARALLELISM_THREADS.
+WARNING:root:Environment variable KMP_BLOCKTIME is empty. Use the default value 0
+WARNING:root:Environment variable KMP_AFFINITY is empty. Use the default value granularity=fine,verbose,compact,1,0
+2022-06-23 23:48:57.337614: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+INFO:tensorflow:Restoring parameters from ./model.ckpt-600000
+DEEPMD INFO    Restoring parameters from ./model.ckpt-600000
+DEEPMD INFO    The following nodes will be frozen: ['model_type', 'descrpt_attr/rcut', 'descrpt_attr/ntypes', 'model_attr/tmap', 'model_attr/model_type', 'model_attr/model_version', 'train_attr/min_nbor_dist', 'train_attr/training_script', 'o_energy', 'o_force', 'o_virial', 'o_atom_energy', 'o_atom_virial', 'fitting_attr/dfparam', 'fitting_attr/daparam']
+WARNING:tensorflow:From /home/pinchenx/data.gpfs/envs/dp-dev/lib/python3.7/site-packages/deepmd/entrypoints/freeze.py:243: convert_variables_to_constants (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.convert_variables_to_constants`
+DEEPMD WARNING From /home/pinchenx/data.gpfs/envs/dp-dev/lib/python3.7/site-packages/deepmd/entrypoints/freeze.py:243: convert_variables_to_constants (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.convert_variables_to_constants`
+WARNING:tensorflow:From /home/pinchenx/data.gpfs/envs/dp-dev/lib/python3.7/site-packages/tensorflow/python/framework/convert_to_constants.py:927: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.extract_sub_graph`
+DEEPMD WARNING From /home/pinchenx/data.gpfs/envs/dp-dev/lib/python3.7/site-packages/tensorflow/python/framework/convert_to_constants.py:927: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.extract_sub_graph`
+DEEPMD INFO    1152 ops in the final graph.
+WARNING:tensorflow:From /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/python3.9/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:root:To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, TF_INTRA_OP_PARALLELISM_THREADS, and TF_INTER_OP_PARALLELISM_THREADS.
+WARNING:root:Environment variable KMP_BLOCKTIME is empty. Use the default value 0
+WARNING:root:Environment variable KMP_AFFINITY is empty. Use the default value granularity=fine,verbose,compact,1,0
+/scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/python3.9/importlib/__init__.py:169: UserWarning: The NumPy module was reloaded (imported a second time). This can in some cases result in small but subtle issues and is discouraged.
+  _bootstrap._exec(spec, module)
+2022-06-23 23:53:38.939176: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+INFO:tensorflow:Restoring parameters from ./model.ckpt-600000
+DEEPMD INFO    Restoring parameters from ./model.ckpt-600000
+DEEPMD INFO    The following nodes will be frozen: ['model_type', 'descrpt_attr/rcut', 'descrpt_attr/ntypes', 'model_attr/tmap', 'model_attr/model_type', 'model_attr/model_version', 'train_attr/min_nbor_dist', 'train_attr/training_script', 'o_energy', 'o_force', 'o_virial', 'o_atom_energy', 'o_atom_virial', 'fitting_attr/dfparam', 'fitting_attr/daparam']
+WARNING:tensorflow:From /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/python3.9/site-packages/deepmd/entrypoints/freeze.py:241: convert_variables_to_constants (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.convert_variables_to_constants`
+DEEPMD WARNING From /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/python3.9/site-packages/deepmd/entrypoints/freeze.py:241: convert_variables_to_constants (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.convert_variables_to_constants`
+WARNING:tensorflow:From /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/python3.9/site-packages/tensorflow/python/framework/convert_to_constants.py:925: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.extract_sub_graph`
+DEEPMD WARNING From /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/python3.9/site-packages/tensorflow/python/framework/convert_to_constants.py:925: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.extract_sub_graph`
+DEEPMD INFO    1152 ops in the final graph.

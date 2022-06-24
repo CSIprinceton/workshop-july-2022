@@ -1,0 +1,39 @@
+variable        NSTEPS          equal 20000
+variable        THERMO_FREQ     equal 100
+variable        DUMP_FREQ       equal 200
+variable        dt              equal 0.0005
+variable        TAU_T           equal 100*${dt}
+variable        TAU_P           equal 1000*${dt}
+variable        restart         equal 0
+
+# ---------------------- INITIALIZAITION ------------------
+units           metal
+boundary        p p p
+atom_style      atomic
+restart         5000 lmp.rest1 lmp.rest2
+
+# --------------------- ATOM DEFINITION ------------------
+read_data       conf.lmp
+mass            1 15.999000
+mass            2 2.008000
+# --------------------- FORCE FIELDS ---------------------
+pair_style      deepmd frozen_model.pb
+pair_coeff      * *
+# --------------------- MD SETTINGS ----------------------
+neighbor        1.0 bin
+timestep        ${dt}
+thermo          ${THERMO_FREQ}
+thermo_style    custom step temp pe ke etotal press vol density lx ly lz
+
+# --------------------- thermo SETTINGS ----------------------
+velocity        all create ${TEMP} 562280 dist gaussian
+fix             mzero all momentum 1000 linear 1 1 1
+fix             init all npt temp ${TEMP} ${TEMP} ${TAU_T} iso ${PRES} ${PRES} ${TAU_P}
+run             10000
+unfix           init
+reset_timestep 	0
+
+dump            1 all custom ${DUMP_FREQ} water.lammpstrj id type x y z
+fix             2 all npt temp ${TEMP} ${TEMP} ${TAU_T}  iso ${PRES} ${PRES} ${TAU_P}
+run             ${NSTEPS}
+
