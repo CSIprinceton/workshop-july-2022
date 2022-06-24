@@ -27,11 +27,13 @@ It is assumed that the student is familiar with the linux command line and previ
 
 The installation methods are thoroughly discussed in the deepmd-kit [manual](https://docs.deepmodeling.com/projects/deepmd/en/stable/install/index.html).
 Here, we will discuss the different options in detail.
-In most cases the easy install procedure that uses the conda package manager is the best option.
+In most cases the easy install procedure based on the conda package manager is the best option and you can also use it in HPC facilities (clusters).
 
 ### Easy install using conda
 
-First, lets install anaconda or miniconda.
+This easy install procedure uses the conda package manager.
+Anaconda is often available in computer clusters, sometimes through [Environment Modules](https://modules.readthedocs.io/en/latest/).
+Assuming that conda is not installed, lets go through the installation steps for anaconda or miniconda.
 Miniconda is a minimal installer and is therefore recommended.
 You can obtain miniconda by downloading the appropriate file from this [website](https://docs.conda.io/en/latest/miniconda.html).
 Assuming that you are using a linux command line in a standard x86-64 architecture, you can run:
@@ -57,6 +59,28 @@ If that works, congratulations! You are ready to do molecular dynamics simulatio
 
 ### More complicated scenarios
 
+In some situations, for instance when one needs to compile software in special computer architectures, the easy install procedure will not work because appropriate conda packages are not available.
+
+#### Docker
+One alternative is using a docker container.
+You can find instruction to install docker [here](https://docs.docker.com/engine/install/).
+In Ubuntu linux you can use:
+```
+sudo apt update
+sudo apt install docker.io
+```
+Next you can get the image with:
+```
+docker pull ghcr.io/deepmodeling/deepmd-kit:2.0.0_cuda10.1_gpu
+```
+See also other available images in the DeePMD-kit [manual](https://docs.deepmodeling.com/projects/deepmd/en/stable/install/easy-install.html#install-with-docker).
+The docker image can be run with the command:
+```
+docker run -it ghcr.io/deepmodeling/deepmd-kit:2.0.0_cuda10.1_gpu
+```
+and you can test that the executables ```dp``` and ```lmp``` are available. 
+
+#### Installation from scratch
 
 
 ## Installation of visualization software
@@ -66,3 +90,7 @@ If that works, congratulations! You are ready to do molecular dynamics simulatio
 ### Xcrysden
 
 ## Navigating the DP library
+
+## Authors
+
+This tutorial has been written mostly by Pablo Piaggi (ppiaggi at princeton.edu)
