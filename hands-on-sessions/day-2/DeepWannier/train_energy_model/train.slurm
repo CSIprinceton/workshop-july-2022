@@ -15,4 +15,4 @@ conda activate /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211
 
 
 dp freeze  1>> train.log 2>> train.log 
-dp compress -i frozen_model.pb -o model-compress.pb 
+#dp compress -i frozen_model.pb -o model-compress.pb 
