@@ -29,7 +29,9 @@ The installation methods are thoroughly discussed in the deepmd-kit [manual](htt
 Here, we will discuss the different options in detail.
 In most cases the easy install procedure based on the conda package manager is the best option and you can also use it in HPC facilities (clusters).
 
-### Easy install using conda
+### Easy install 
+
+#### Conda
 
 This easy install procedure uses the conda package manager.
 Anaconda is often available in computer clusters, sometimes through [Environment Modules](https://modules.readthedocs.io/en/latest/).
@@ -57,13 +59,10 @@ conda activate deepmd
 and test that the ```dp``` (DeePMD-kit) and the ```lmp_mpi``` (LAMMPS) executables are available. 
 If that works, congratulations! You are ready to do molecular dynamics simulations driven by ab initio machine learning potentials and much more!
 
-### More complicated scenarios
-
-In some situations, for instance when one needs to compile software in special computer architectures, the easy install procedure will not work because appropriate conda packages are not available.
-
 #### Docker
-One alternative is using a docker container.
-You can find instruction to install docker [here](https://docs.docker.com/engine/install/).
+
+An alternative to conda is using a docker container.
+You can find instructions to install docker [here](https://docs.docker.com/engine/install/).
 In Ubuntu linux you can use:
 ```
 sudo apt update
@@ -80,12 +79,34 @@ docker run -it ghcr.io/deepmodeling/deepmd-kit:2.0.0_cuda10.1_gpu
 ```
 and you can test that the executables ```dp``` and ```lmp``` are available. 
 
+### More complicated scenarios
+
 #### Installation from scratch
 
+In some situations, for instance when one needs to compile software in special computer architectures, the easy install procedure will not work because appropriate conda packages or a suitable docker image are not available.
+In other instances, one might need optional LAMMPS packages that were not included in the conda package, or we may be interested in making modifications to the DeePMD-kit or LAMMPS source code.
+In this case we will have no option but to compile from scratch.
+We will have to get our hands dirty but it will be worthwhile! Patience and lots of coffee! (or your favorite caffeinated drink)
+
+The instructions are described well in the DeePMD-kit [manual](https://docs.deepmodeling.com/projects/deepmd/en/stable/install/install-from-source.html).
+The main issue is that DeePMD-kit has tensorflow as a dependency and its compilation is non trivial and time consuming.
 
 ## Installation of visualization software
 
 ### Ovito
+
+We will use the Ovito visualization software to analyze the simulations in other tutorial sessions during the workshop.
+Lets install it in your laptop or desktop computer!
+The procedure is quite simple and you can find it [here](https://www.ovito.org/).
+If you are using linux you can download a tarball file using this [link](https://www.ovito.org/download/3106/).
+Then untar the file, cd to the appropriate folder and run,
+```
+tar -xf ovito-basic-3.7.6-x86_64.tar.xz
+cd ovito-basic-3.7.6-x86_64/bin
+./ovito
+```
+
+During the workshop we will give a brief overview of Ovito's usage.
 
 ### Xcrysden
 
