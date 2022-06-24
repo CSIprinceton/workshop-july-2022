@@ -110,7 +110,22 @@ During the workshop we will give a brief overview of Ovito's usage.
 
 ### Xcrysden
 
+We will use Xcrysden to visualize the input and ouput files of Quantum ESPRESSO.
+The installation instructions can be found [here](http://www.xcrysden.org/Download.html).
+In Ubuntu linux (or in general, in debian-based distributions) the instructions are as follows:
+```
+apt install tk libglu1-mesa libtogl2 libfftw3-3 libxmu6 imagemagick openbabel libgfortran5
+wget http://www.xcrysden.org/download/xcrysden-1.6.2-linux_x86_64-shared.tar.gz
+tar -xf xcrysden-1.6.2-linux_x86_64-shared.tar.gz
+cd xcrysden-1.6.2-bin-shared/bin
+./xcrys
+```
+
 ## Navigating the DP library
+
+The DP library is a repository of Deep Potentials (DPs), i.e. potentials built with the DeePMD-kit.
+You can access it using this link [dplibrary.deepmd.net](https://dplibrary.deepmd.net/#/).
+We suggest that you play around and see the potentials that are available.
 
 ## Authors
 
