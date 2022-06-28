@@ -13,7 +13,7 @@ This tutorial will demonstrate basic usage of the PW module of Quantum-ESPRESSO,
 This tutorial will accomplish the following:
 - Overview of the necessary scripts and inputs for performing QE calculations
 - Anatomy of the QE input file + the physical and practical significance of various parameters
-  - Incomplete guide to benchmarking DFT protocol 
+  - Benchmarking DFT parameters: an incomplete guide 
   - Relationship between input file and crystal/molecular structure
 - Submitting QE jobs
 - Parsing and understanding QE output
