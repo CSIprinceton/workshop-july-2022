@@ -2,8 +2,7 @@ units metal
 atom_style atomic
 boundary p p p
 read_data data.vii331
-plugin load /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/libdeepmd_lmp.so
-pair_style deepmd /scratch/gpfs/yifanl/Work/dp/superionic/frozen_model_compressed.pb
+pair_style deepmd ../frozen_model_compressed.pb
 pair_coeff * *
 
 timestep 0.0005
