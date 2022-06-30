@@ -1,0 +1,26 @@
+units metal
+atom_style atomic
+boundary p p p
+read_data data.vii331
+plugin load /scratch/gpfs/yifanl/usr/licensed/anaconda3/2020.7/dp211/lib/libdeepmd_lmp.so
+pair_style deepmd /scratch/gpfs/yifanl/Work/dp/superionic/frozen_model_compressed.pb
+pair_coeff * *
+
+timestep 0.0005
+
+fix 1 all npt temp 1800 1800 0.05 iso 300000 300000 0.5
+
+velocity all create 1800 2302
+
+thermo_style custom step temp ke pe etotal press vol
+thermo 100
+thermo_modify format line "%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e"
+
+dump dcd all xyz 100 vii.xyz
+dump_modify dcd sort id
+
+compute myRDF all rdf 100 1 1 1 2 2 2 
+fix 2 all ave/time 100 1 100 c_myRDF[*] file vii.rdf mode vector
+
+run 100000
+write_data data.fluid
