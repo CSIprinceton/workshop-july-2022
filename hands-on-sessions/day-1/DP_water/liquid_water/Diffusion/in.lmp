@@ -1,0 +1,19 @@
+units metal
+atom_style atomic
+boundary p p p
+read_data data.h2o_npt
+pair_style deepmd ../../../frozen_model_compressed.pb
+pair_coeff * *
+
+timestep 0.0005
+
+fix 1 all nve
+
+thermo_style custom step temp ke pe etotal press vol
+thermo 100
+thermo_modify format line "%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e"
+
+dump dcd all custom 100 h2o.xyz id type x y z vx vy vz ix iy iz
+dump_modify dcd sort id
+
+run 100000

@@ -2,7 +2,7 @@ units metal
 atom_style atomic
 boundary p p p
 read_data data.fluid
-pair_style deepmd ../frozen_model_compressed.pb
+pair_style deepmd ../../../frozen_model_compressed.pb
 pair_coeff * *
 
 timestep 0.0005
