@@ -1,0 +1,2 @@
+[proxy:0:0@C-CPU99134] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:117): execvp error on file /home/wanghan/bin/vasp_std (No such file or directory)
+[proxy:0:0@C-CPU99134] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:117): execvp error on file /home/wanghan/bin/vasp_std (No such file or directory)

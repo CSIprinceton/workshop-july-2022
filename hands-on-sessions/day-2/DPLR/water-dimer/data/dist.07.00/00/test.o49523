@@ -1,0 +1,16 @@
+------------------------------------------------------
+Job is running on node c-cpu40865.ehpc-bj-kfi0xt7mwp
+------------------------------------------------------
+PBS: qsub is running on login0.ehpc-bj-kfi0xt7mwp
+PBS: originating queue is C_32_64
+PBS: executing queue is C_32_64
+PBS: working directory is /home/wanghan/research/water.dimer.scan/prod/aligned/dist.07.00/00
+PBS: execution mode is PBS_BATCH
+PBS: job identifier is 49523.scheduler
+PBS: job name is test
+PBS: node file is /var/spool/pbs/aux/49523.scheduler
+PBS: current home directory is /home/wanghan
+PBS: PATH = /home/wanghan/local/venvs/devel-60634f9-tf1.14/bin:/opt/intel/advisor_2019.5.0.602216/bin64:/opt/intel/vtune_amplifier_2019.6.0.602217/bin64:/opt/intel/inspector_2019.5.0.602103/bin64:/opt/intel/itac/2019.5.041/intel64/bin:/opt/intel/itac/2019.5.041/intel64/bin:/opt/intel/parallel_studio_xe_2019.5.075/clck_2019/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/bin/intel64:/opt/intel/compilers_and_libraries_2019.5.281/linux/bin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/libfabric/bin:/opt/intel/compilers_and_libraries_2019.5.281/linux/mpi/intel64/bin:/opt/intel/debugger_2019/gdb/intel64/bin:/usr/local/cuda/bin:/opt/anaconda3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/pbs/bin:/home/wanghan/.local/bin:/home/wanghan/bin:/opt/intel/parallel_studio_xe_2019.5.075/bin
+------------------------------------------------------
+Intel(R) Parallel Studio XE 2019 Update 4 for Linux*
+Copyright (C) 2009-2019 Intel Corporation. All rights reserved.

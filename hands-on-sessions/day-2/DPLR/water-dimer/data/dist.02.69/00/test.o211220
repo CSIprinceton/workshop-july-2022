@@ -1,0 +1,16 @@
+------------------------------------------------------
+Job is running on node c-cpu99194.ehpc-bj-rukkf0400z
+------------------------------------------------------
+PBS: qsub is running on login0.ehpc-bj-rukkf0400z
+PBS: originating queue is C_32_64
+PBS: executing queue is C_32_64
+PBS: working directory is /home/wanghan/research/ewald.pbe/water.dimer/prod/aligned/dist.02.69/00
+PBS: execution mode is PBS_BATCH
+PBS: job identifier is 211220.scheduler
+PBS: job name is test
+PBS: node file is /var/spool/pbs/aux/211220.scheduler
+PBS: current home directory is /home/wanghan
+PBS: PATH = /home/wanghan/local/venvs/devel-6b3d014-tf1.14/bin:/usr/local/cuda/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/pbs/bin:/home/wanghan/.local/bin:/home/wanghan/bin
+------------------------------------------------------
+Intel(R) Parallel Studio XE 2019 Update 4 for Linux*
+Copyright (C) 2009-2019 Intel Corporation. All rights reserved.

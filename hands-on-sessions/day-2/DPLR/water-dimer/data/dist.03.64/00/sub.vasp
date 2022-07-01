@@ -1,0 +1,11 @@
+#!/bin/sh
+#PBS -q C_32_64
+#PBS -N vasp
+#PBS -l select=1:ncpus=32
+
+cd $PBS_O_WORKDIR
+
+source /opt/intel/parallel_studio_xe_2019/psxevars.sh
+
+mpirun -n 32 /opt/vasp/vasp_std &> log
+
