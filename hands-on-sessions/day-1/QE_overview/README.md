@@ -109,6 +109,12 @@ Last, `K_POINTS` refers to the sampling of the Brillouin Zone performed in the c
 
 With all of our necessary components ready we can run a simple QE job. In the tutorial virtual machines you may run these from the command line, but for best practices we will use a submit script `sub.sh`.
 
+Run the job by doing:
+
+```
+sbatch sub.sh
+```
+
 *TBD once I have access to VMs*
 
 ### Benchmarking DFT protocol
