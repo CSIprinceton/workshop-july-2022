@@ -25,10 +25,42 @@ It is assumed that the participant has a general understanding of quantum mechan
 
 ## Getting Started with Quantum-ESPRESSO
 
-Running jobs with the PWSCF module of QE requires at minimum: 1) the pw.x executable, 2) an input file, and 3) pseudopotentials in UPF format. Types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize [ONCV pseudopotentials](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psps") optimized for PBE calcultions
+Running jobs with the PWSCF module of QE requires at minimum: 
 
-Code:
+1) the pw.x executable and its corresponding environment
+2) an input file
+3) pseudopotentials in UPF format 
+
+Different types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize a [ONCV pseudopotentials](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psp library") optimized for PBE calcultions.
+
+As mentioned previously, the pw.x executable and environment will be readily available to participants of the tutorial.
+
+Now we will begin by dissecting the QE input file using bulk Si as an example.
+
+### Input file basics
+
+The all-in-one guide for PWscf keywords is [here](https://www.quantum-espresso.org/Doc/INPUT_PW.html). This tutorial will address many of the most basic specifications.
+
+Let's take a look at the file `si.in` located in this head directory, starting with the `&control` namelist:
+
 ```
-Command line things
+ &control
+   restart_mode = 'from_scratch',
+   calculation  = 'scf',
+   prefix       = 'si',
+   outdir       = './',
+   pseudo_dir = './',
+   tprnfor = .true.,
+ /
 ```
+Start by noting the formatting of namelists; the `&` starts the namelist and the `/` terminates it. Keywords are separated by commas (and for our convenience but not necessarily, line breaks). `restart_mode = 'from_scratch',` implies that we are starting a calcualtion from scratch rather than restarting. `calculation  = 'scf',` entails that we are running a single-point self-consistent field (SCF) energy calculation. The prefix keyword sets the nomenclature for all output files. The `outdir` and `pseudo_dir` keywords specify the desired location of the outputs and pseudopotentials, respectively. In both cases, that will be the present directory `./`. Lastly, and importantly for DPMD applications `tprnfor = .true.,` will ensure that the atom-centered forces will be printed in the QE output.
+
+
+
+
+
+
+
+
+
 
