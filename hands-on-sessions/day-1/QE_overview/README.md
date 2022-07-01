@@ -6,26 +6,26 @@ Fundamentals of using Quantum-ESPRESSO for plane-wave DFT calculations of energi
 
 ## Objectives
 
-This tutorial will demonstrate basic usage of the PW module of Quantum-ESPRESSO, focusing on the practical significances of key computational parameters and using crystalline Si as an example. This is intended to be a practical tutorial for those who have not performed DFT calculations with QE in the past and will not cover the underlying physics and chemistry concepts. This exercise will cover how to benchmark and conduct ground state DFT simulations of periodic systems and extract results of relevance to the training of deep neural network potentials. Specifically, this tutorial will explicate the importance of using sufficiently converged electronic structure methods for reliably obtaining the energies and atom-centered forces.
+This tutorial will demonstrate basic usage of the PW module of Quantum-ESPRESSO, a leading open-source software for electronic structure, focusing on the practical significances of key computational parameters and using crystalline Si as an example. This is intended as a practical tutorial for those who have not performed DFT calculations with QE in the past and will not cover the underlying physics and chemistry concepts. This exercise will cover how to benchmark and conduct ground state DFT simulations of periodic systems and extract results of relevance to the training of deep neural network potentials.
 
 ## Outline
 
 This tutorial will accomplish the following:
-- Overview of the necessary scripts and inputs for performing QE calculations
+- Necessary files and scripts for running QE calculations
 - Anatomy of the QE input file + the physical and practical significance of various parameters
-  - Benchmarking DFT parameters: an incomplete guide 
-  - Relationship between input file and crystal/molecular structure
 - Submitting QE jobs
+- Benchmarking DFT parameters: an incomplete guide 
+- Relationship between input file and atomic/crystal structure
 - Parsing and understanding QE output
-- Additional considerations + links: LibXC for SCAN and other functionals, QE on GPUs
+- Additional considerations + links: LibXC for SCAN/hybrid functionals, QE on GPUs
 
 ## Prerequisites
 
-It is assumed that the participant has a general understanding of quantum mechanical calculations and proficiency with the linux command line. Additional experience with plane-wave basis sets, crystal structure, and other solid-state physics concepts will also be helpful. However, this is intended as a practical guide for those who have not used QE or performed DFT calculations previously. This tutorial is furthermore written for Workshop participants who will have access to virtual machines which have QE v??? compiled. Instructions for downloading and compiling QE can be found at https://github.com/QEF/q-e.
+It is assumed that the participant has a general understanding of quantum mechanical calculations and proficiency with the linux command line. Additional experience with plane-wave basis sets, crystal structure, and other solid-state physics concepts will also be helpful. This tutorial is furthermore written for Workshop participants who will have access to virtual machines which have QE v6.4.1 compiled. Instructions for downloading and compiling QE can be found at https://github.com/QEF/q-e.
 
-## Quantum-ESPRESSO
+## Getting Started with Quantum-ESPRESSO
 
-### Subhed
+Running jobs with the PWSCF module of QE requires at minimum: 1) the pw.x executable, 2) an input file, and 3) pseudopotentials in UPF format. Types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize [ONCV pseudopotentials](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psps") optimized for PBE calcultions
 
 Code:
 ```
