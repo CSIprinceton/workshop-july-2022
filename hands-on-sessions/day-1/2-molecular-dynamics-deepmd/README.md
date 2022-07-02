@@ -25,9 +25,9 @@ It is assumed that the student is familiar with the linux command line. A workin
 
 ## Part 1: Molecular dynamics simulations 
 
-In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water using DeePMD and LAMMPS.
+In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water and ice using DeePMD and LAMMPS.
 
-Let's explore the LAMMPS input file ```liquid_water/Diffusion/in.lmp```.
+Let's explore the LAMMPS input file ```liquid_water/RDF/in.lmp```.
 During the tutorial we will briefly describe all lines.
 We will focus on the lines that determine the potential driving the dynamics:
 ```
@@ -40,19 +40,24 @@ This model was carefully trained to reproduce the potential energy surface of th
 You can find further information about the model in [this paper](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.236001).
 The second line determines the species that are affected by this model. It must always be set to all vs all and is done with ```* *```.
 
-### Commands to Run the Simulation
+Now let's run a simulation.
+We will simulate liquid water at 300 K and 1 bar.
+cd to the folder ```liquid_water/RDF`` and run:
 ```
 conda activate deepmd
 lmp -in in.lmp
 ```
+This simulation should take a few minutes to finish.
+We have computed the radial distribution function on-the-fly in LAMMPS.
+Now plot the partial distributions functions O-O, O-H, and H-H that are found in ```h2o.rdf```.
 
-### Use Jupyter Notebook to Process the Data
-Run jupyter notebook on the machine:
+An example of plots obtained using matplolib and jupyter notebooks is found in ```H2O_RDF.ipynb```.
+You can run the jupyter notebook on the virtual machine and open it in your local browser using:
 ```
 nohup jupyter notebook --port=2333 &
 ```
 Connect to it on your own computer:
 ```
-ssh -N -f -L localhost:2333:localhost:2333 -p 4981 deepmdlabadmin@lab-b85f64a2-5e4b-4761-a76d-29e88aeb151a.eastus.cloudapp.azure.com
+ssh -N -f -L localhost:2333:localhost:2333 -p <port> <username>@<remote-machine-address>
 ```
-Use `vi nohup.out` to open it, use `Shift + G` to go to the last line of the file, and copy the address to the jupyter notebook. Then paste it into your browser.
+Use `vi nohup.out` to open it, use `Shift + G` to go to the last line of the file, copy the link, and then paste it into your browser.
