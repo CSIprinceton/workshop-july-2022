@@ -2,4 +2,6 @@
 ## Two-day virtual workshop, July 7-8, 2022
 
 Welcome to the repository of the workshop! Here you will find the instructions for the tutorials and other useful material.
-For now the tutorial is consist of two parts, and be given in two days.
+
+### Authors
+Yifan Li, Zachary Goldsmith, Chunyi Zhang, Pinchen Xie, Yixiao Chen, and Pablo Piaggi 
