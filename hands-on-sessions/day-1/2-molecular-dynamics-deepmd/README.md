@@ -1,9 +1,32 @@
-# Molecular Dynamics Simulation of Liquid Water Under Ambient Conditions
+# Deep Modeling for Molecular Simulation
+Hands-on sessions - Day 1 - July 7, 2022
 
-## Introduction
-In this tutorial, we will introduce how to calculate the structural and dynamic properties of liquid water using DeePMD and LAMMPS. The 
+Molecular dynamics driven by deep potentials and learning the potential energy surface using DeePMD
 
-## Files Prepared
+## Aims
+
+The aim of this tutorial is twofold. In part 1 of this hands-on session we will show how to run molecular dynamics (MD) simulations driven by deep potentials (machine learning potentials based on ab initio quantum mechanical calculations). Emphasis is made on the physics that are captured by these models and are absent in empirical potentials. During the second part of this tutorial we will learn the basics of training a potential using energies and forces obtained from DFT calculations.
+
+## Objectives
+
+The objectives of this tutorial session are:
+- Learn to perform MD simulations driven by deep potentials using LAMMPS and the DeePMD-kit
+- Understand the LAMMPS input file, in particular the lines relevant to use deep potentials
+- Interpret and understand results of the MD simulations in the light of the physical phenomena captured by these models
+- Understand that deep potentials are reactive, flexible, and polarizable
+- Learn to train a model that reproduces an ab initio potential energy surface
+- Use of the commands ```dp train``` and ```dp test``` of the DeePMD-kit
+- Understand the json input file of ```dp train```
+- Understand that regions of configuration space that are not well represented in the training set are not well described by the trained model
+
+## Prerequisites
+
+It is assumed that the student is familiar with the linux command line. A working executable of LAMMPS and the DeePMD-kit.
+
+## Part 1: Molecular dynamics simulations 
+
+In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water using DeePMD and LAMMPS. The 
+
 We can use `ls` to see the files provided in this directory:
 ```
 README.md                  frozen_model_compressed.pb liquid_water               superionic
@@ -18,13 +41,13 @@ Diffusion RDF
 Diffusion RDF
 ```
 
-## Commands to Run the Simulation
+### Commands to Run the Simulation
 ```
 conda activate deepmd
 lmp -in in.lmp
 ```
 
-## Use Jupyter Notebook to Process the Data
+### Use Jupyter Notebook to Process the Data
 Run jupyter notebook on the machine:
 ```
 nohup jupyter notebook --port=2333 &
