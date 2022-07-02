@@ -25,21 +25,20 @@ It is assumed that the student is familiar with the linux command line. A workin
 
 ## Part 1: Molecular dynamics simulations 
 
-In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water using DeePMD and LAMMPS. The 
+In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water using DeePMD and LAMMPS.
 
-We can use `ls` to see the files provided in this directory:
+Let's explore the LAMMPS input file ```liquid_water/Diffusion/in.lmp```.
+During the tutorial we will briefly describe all lines.
+We will focus on the lines that determine the potential driving the dynamics:
 ```
-README.md                  frozen_model_compressed.pb liquid_water               superionic
+pair_style deepmd ../../frozen_model_compressed.pb
+pair_coeff * *
 ```
-- `frozen_model_compressed.pb` is the machine learning force field for trained from DFT data with the PBE functional.
-- `superionic` contains the following 2 folders:
-```
-Diffusion RDF
-```
-- `liquid_water` also contains the 2 folders:
-```
-Diffusion RDF
-```
+The first line specifies that we will use a deepmd model that is found in ```../../frozen_model_compressed.pb```.
+We have obtained this model from the DP library described in tutorial session 1 ([link](https://dplibrary.deepmd.net/#/project_details?project_id=202206.001) to model).
+This model was carefully trained to reproduce the potential energy surface of the SCAN DFT exchange and correlation functional in a broad range of temperatures and pressures conditions.
+You can find further information about the model in [this paper](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.236001).
+The second line determines the species that are affected by this model. It must always be set to all vs all and is done with ```* *```.
 
 ### Commands to Run the Simulation
 ```
