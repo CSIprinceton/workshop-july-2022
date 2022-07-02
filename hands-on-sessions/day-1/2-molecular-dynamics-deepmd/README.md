@@ -52,12 +52,13 @@ We have computed the radial distribution function on-the-fly in LAMMPS.
 Now plot the partial distributions functions O-O, O-H, and H-H that are found in ```h2o.rdf```.
 
 An example of plots obtained using matplolib and jupyter notebooks is found in ```H2O_RDF.ipynb```.
-You can run the jupyter notebook on the virtual machine and open it in your local browser using:
+You can run the jupyter notebook on the virtual machine and open it in your local browser.
+In order to do this, first execute on the remote machine:
 ```
 nohup jupyter notebook --port=2333 &
 ```
-Connect to it on your own computer:
+and then run in your local machine:
 ```
 ssh -N -f -L localhost:2333:localhost:2333 -p <port> <username>@<remote-machine-address>
 ```
-Use `vi nohup.out` to open it, use `Shift + G` to go to the last line of the file, copy the link, and then paste it into your browser.
+At the end of this file you will find a link that you can copy and then paste into your browser.
