@@ -122,5 +122,5 @@ In the previous section, we learned to run MD simulations using deep potentials.
 Let's now see the tools available to create our own ab initio machine learning models.
 Most models are trained in an iterative fashion using an active (or [concurrent](https://arxiv.org/abs/1910.12690)) learning approach.
 
-<img src="https://github.com/CSIprinceton/workshop-july-2022/tree/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/active_learning.png" width="250">
+<img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/active_learning.png" width="250">
 
