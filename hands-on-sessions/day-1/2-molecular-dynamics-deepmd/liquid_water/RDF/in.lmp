@@ -16,8 +16,9 @@ thermo_style custom step temp ke pe etotal press vol
 thermo 100
 thermo_modify format line "%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e"
 
-dump dcd all custom 100 h2o.xyz id type x y z vx vy vz
-dump_modify dcd sort id
+dump my_dump all custom 100 h2o.xyz id type x y z vx vy vz
+dump_modify my_dump sort id
+dump my_dump2 all atom 100 water.lammps-dump-text
 
 compute myRDF all rdf 100 1 1 1 2 2 2 
 fix 2 all ave/time 100 1 100 c_myRDF[*] file h2o.rdf mode vector

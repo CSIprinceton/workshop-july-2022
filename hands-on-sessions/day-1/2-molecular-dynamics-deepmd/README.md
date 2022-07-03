@@ -27,8 +27,6 @@ It is assumed that the student is familiar with the linux command line. A workin
 
 In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water and ice using DeePMD and LAMMPS.
 
-### Liquid water at ambient conditions
-
 Let's explore the LAMMPS input file ```liquid_water/RDF/in.lmp```.
 During the tutorial we will briefly describe all lines.
 We will focus on the lines that determine the potential driving the dynamics:
@@ -42,19 +40,21 @@ This model was carefully trained to reproduce the potential energy surface of th
 You can find further information about the model in [this paper](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.236001).
 The second line determines the species that are affected by this model. It must always be set to all vs all and is done with ```* *```.
 
+### Liquid water at ambient conditions
+
 Now let's run a simulation.
-We will simulate liquid water at 300 K and 1 bar.
+We will simulate liquid water at constant temperature 300 K and constant pressure 1 bar (NPT ensemble).
 cd to the folder ```liquid_water/RDF`` and run:
 ```
 conda activate deepmd
 lmp -in in.lmp
 ```
 This simulation should take a few minutes to finish.
-We have computed the radial distribution function on-the-fly in LAMMPS.
+We have computed the **radial distribution** function on-the-fly in LAMMPS.
 Now plot the partial distributions functions O-O, O-H, and H-H that are found in ```h2o.rdf```.
+Interpret and discuss the meaning of these functions.
 
-> **_TIP:_**  
-> An example of plots obtained using matplolib and jupyter notebooks is found in ```H2O_RDF.ipynb```.
+> **_TIP:_** An example of plots obtained using matplolib and jupyter notebooks can be found in ```H2O_RDF.ipynb```.
 > You can run the jupyter notebook on the virtual machine and open it in your local browser.
 > In order to do this, first execute on the remote machine:
 > ```
@@ -65,5 +65,15 @@ Now plot the partial distributions functions O-O, O-H, and H-H that are found in
 > ssh -N -f -L localhost:2333:localhost:2333 -p <port> <username>@<remote-machine-address>
 > ```
 > At the end of the ```nohup.out``` file you will find a link that you can copy and then paste into your browser.
+
+Let's now turn to study the **diffusion coefficient** of oxigen and hydrogen.
+The input files to run the MD simulation are in ```liquid_water/Diffusion```.
+Here we will start from a configuration equilibrated at 300 K and 1 bar, and run a simulation in the NVE ensemble.
+Start running the simulation.
+We will use this trajectory to compute the mean squared displacement and we will then obtain the diffusion coefficient using Einstein's formula.
+Further details can be found in the Jupyter Notebook ```liquid_water/Diffusion/H2O_Diffusion.ipynb```.
+
+The last task of this section is to **visualize the trajectory** using [Ovito](https://www.ovito.org/).
+
 
 

@@ -13,7 +13,8 @@ thermo_style custom step temp ke pe etotal press vol
 thermo 100
 thermo_modify format line "%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e"
 
-dump dcd all custom 100 h2o.xyz id type x y z vx vy vz ix iy iz
-dump_modify dcd sort id
+dump my_dump all custom 100 h2o.xyz id type x y z vx vy vz ix iy iz
+dump_modify my_dump sort id
+dump my_dump2 all atom 100 water.lammps-dump-text
 
 run 100000
