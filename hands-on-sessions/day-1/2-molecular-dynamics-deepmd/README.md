@@ -77,9 +77,9 @@ Interpret and discuss the meaning of these functions.
 > At the end of the ```nohup.out``` file you will find a link that you can copy and then paste into your browser.
 
 Let's now turn to study the **diffusion coefficient** of oxigen and hydrogen.
-During the previous MD run we computed the mean squared displacement and we used it to compute the diffusion coefficient using Einstein's formula,
+During the previous MD run we computed the mean squared displacement and we used it to compute the diffusion coefficient (D) using Einstein's formula,
 
-$$ D=\frac{1}{6}\frac{\mathrm{d}}{\mathrm{d}t}\langle\frac{1}{N}\sum_{i=1}^{N}(\mathbf{r}_i(t)-\mathbf{r}_i(0))^2\rangle $$
+$$ D=\frac{1}{6}\frac{\mathrm{d}}{\mathrm{d}t}\langle\frac{1}{N}\sum_{i=1}^{N}(\mathbf{r}_i(t)-\mathbf{r}_i(0))^2\rangle . $$
 
 These are the relevant lines in the LAMMPS input file:
 ```
@@ -117,3 +117,10 @@ What are the main differences between these three phases?
 What phenomena are captured by ab initio machine learning models that empirical potentials do not describe?
 
 ## Part 2: Learning the potential energy surface
+
+In the previous section, we learned to run MD simulations using deep potentials.
+Let's now see the tools available to create our own ab initio machine learning models.
+Most models are trained in an iterative fashion using an active (or [concurrent](https://arxiv.org/abs/1910.12690)) learning approach.
+
+<img src="https://github.com/CSIprinceton/workshop-july-2022/tree/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/active_learning.png" width="250">
+
