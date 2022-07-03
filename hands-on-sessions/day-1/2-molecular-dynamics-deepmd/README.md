@@ -44,7 +44,7 @@ The second line determines the species that are affected by this model. It must 
 
 Now let's run a simulation.
 We will simulate liquid water at constant temperature 300 K and constant pressure 1 bar (NPT ensemble).
-cd to the folder ```liquid_water/RDF`` and run:
+cd to the folder ```liquid_water/RDF``` and run:
 ```
 conda activate deepmd
 lmp -in in.lmp
@@ -108,7 +108,7 @@ What are the differences with empirical models?
 We will now study the transition from molecular ice VII, to superionic ice VII'', and to an ionic fluid.
 You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
 As in the exercise above, first run the MD simulations in each folder.
-Then plot the radial distribution functions, the diffusion coeffcient, and visualize the trajectories.
+Then plot the radial distribution functions, the diffusion coefficient, and visualize the trajectories.
 What are the main differences between these three phases?
 What phenomena are captured by ab initio machine learning models that empirical potentials do not describe?
 
