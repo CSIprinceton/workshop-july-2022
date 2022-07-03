@@ -21,7 +21,7 @@ The objectives of this tutorial session are:
 
 ## Prerequisites
 
-It is assumed that the student is familiar with the linux command line. A working executable of LAMMPS and the DeePMD-kit is required.
+It is assumed that the student is familiar with the linux command line. A working executable of LAMMPS and the DeePMD-kit.
 
 ## Part 1: Molecular dynamics simulations 
 
@@ -50,8 +50,17 @@ conda activate deepmd
 lmp -in in.lmp
 ```
 This simulation should take a few minutes to finish.
-We have computed the **radial distribution** function on-the-fly in LAMMPS.
-Now plot the partial distributions functions O-O, O-H, and H-H that are found in ```h2o.rdf```.
+We have computed the **radial distribution function** (RDF) on-the-fly in LAMMPS using these lines:
+```
+compute myRDF all rdf 100 1 1 1 2 2 2
+fix 2 all ave/time 100 1 100 c_myRDF[*] file h2o.rdf mode vector ave running
+```
+Obtain the final, averaged radial distribution functions using:
+```
+tail -n 101 h2o.rdf > myrdf.txt
+``` 
+Now plot the partial distributions functions O-O, O-H, and H-H that are found in ```myrdf.txt```.
+For instance, plot column 2 vs 3, 2 vs 5, and 2 vs 7 to get the O-O, O-H, and H-H partial distributions functions, respectively.
 Interpret and discuss the meaning of these functions.
 
 > **_TIP:_** An example of plots obtained using matplolib and jupyter notebooks can be found in ```H2O_RDF.ipynb```.
@@ -67,11 +76,20 @@ Interpret and discuss the meaning of these functions.
 > At the end of the ```nohup.out``` file you will find a link that you can copy and then paste into your browser.
 
 Let's now turn to study the **diffusion coefficient** of oxigen and hydrogen.
-The input files to run the MD simulation are in ```liquid_water/Diffusion```.
-Here we will start from a configuration equilibrated at 300 K and 1 bar, and run a simulation in the NVE ensemble.
-Start running the simulation.
-We will use this trajectory to compute the mean squared displacement and we will then obtain the diffusion coefficient using Einstein's formula.
-Further details can be found in the Jupyter Notebook ```liquid_water/Diffusion/H2O_Diffusion.ipynb```.
+During the previous MD run we computed the mean squared displacement and we used it to compute the diffusion coefficient using Einstein's formula.
+These are the relevant lines in the LAMMPS input file:
+```
+compute msd_O Oatoms msd
+compute msd_H Hatoms msd
+fix store_msd_O all vector 10 c_msd_O[4]
+fix store_msd_H all vector 10 c_msd_H[4]
+variable fitslope_O equal slope(f_store_msd_O)/6/(10*dt)
+variable fitslope_H equal slope(f_store_msd_H)/6/(10*dt)
+fix 3 all ave/time 100 1 100 c_msd_O[4] c_msd_H[4] v_fitslope_O v_fitslope_H file diffusion.txt
+```
+The output can be found in the file ```diffusion.txt```.
+Plot the MSD as a function of time, and the estimated diffusion coefficient vs time.
+An alternative approach to the calculation of the diffusion coefficient is described in the Jupyter Notebook ```liquid_water/Diffusion/H2O_Diffusion.ipynb```.
 
 The last task of this section is to **visualize the trajectory** using [Ovito](https://www.ovito.org/).
 If needed, copy the LAMMPS dump and data files to your local computer using, for instance,
@@ -85,6 +103,13 @@ You can visualize the trajectory and test modifiers such as ```Create bonds``` a
 Discuss the physics of this model in the light of the results obtained for the radial distribution functions, diffusion coefficient, and the visualization.
 What are the differences with empirical models?
 
-### Superionic ice and ionic fluid
+### Superionic ice
 
-We will n
+We will now study the transition from molecular ice VII, to superionic ice VII'', and to an ionic fluid.
+You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
+As in the exercise above, first run the MD simulations in each folder.
+Then plot the radial distribution functions, the diffusion coeffcient, and visualize the trajectories.
+What are the main differences between these three phases?
+What phenomena are captured by ab initio machine learning models that empirical potentials do not describe?
+
+## Part 2: Learning the potential energy surface

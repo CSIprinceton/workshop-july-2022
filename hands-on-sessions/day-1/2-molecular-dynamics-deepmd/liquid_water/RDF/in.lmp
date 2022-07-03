@@ -7,8 +7,8 @@ pair_coeff * *
 
 timestep 0.0005
 
-group gO type 1
-group gH type 2
+group Oatoms type 1
+group Hatoms type 2
 
 fix 1 all npt temp 300 300 0.05 iso 1.0 1.0 0.5
 
@@ -21,6 +21,14 @@ dump_modify my_dump sort id
 dump my_dump2 all atom 100 water.lammps-dump-text
 
 compute myRDF all rdf 100 1 1 1 2 2 2 
-fix 2 all ave/time 100 1 100 c_myRDF[*] file h2o.rdf mode vector
+fix 2 all ave/time 100 1 100 c_myRDF[*] file h2o.rdf mode vector ave running
+
+compute msd_O Oatoms msd
+compute msd_H Hatoms msd
+fix store_msd_O all vector 10 c_msd_O[4]
+fix store_msd_H all vector 10 c_msd_H[4]
+variable fitslope_O equal slope(f_store_msd_O)/6/(10*dt)
+variable fitslope_H equal slope(f_store_msd_H)/6/(10*dt)
+fix 3 all ave/time 100 1 100 c_msd_O[4] c_msd_H[4] v_fitslope_O v_fitslope_H file diffusion.txt
 
 run 100000

@@ -5,21 +5,34 @@ read_data ionic-fluid.lammps-data
 pair_style deepmd ../../../frozen_model_compressed.pb
 pair_coeff * *
 
+group Oatoms type 1
+group Hatoms type 2
+
 timestep 0.0005
 
-fix 1 all npt temp 1800 1800 0.05 iso 300000 300000 0.5
+variable temp equal 1800
 
-velocity all create 1800 2302
+fix 1 all npt temp ${temp} ${temp} 0.05 iso 300000 300000 0.5
 
-thermo_style custom step temp ke pe etotal press vol
-thermo 100
-thermo_modify format line "%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e"
+velocity all create ${temp} 2302
 
 dump my_dump all xyz 100 vii.xyz
 dump_modify my_dump sort id
 dump my_dump2 all atom 100 water.lammps-dump-text
 
 compute myRDF all rdf 100 1 1 1 2 2 2 
-fix 2 all ave/time 100 1 100 c_myRDF[*] file vii.rdf mode vector
+fix 2 all ave/time 100 1 100 c_myRDF[*] file vii.rdf mode vector ave running
+
+compute msd_O Oatoms msd
+compute msd_H Hatoms msd
+fix store_msd_O all vector 10 c_msd_O[4]
+fix store_msd_H all vector 10 c_msd_H[4]
+variable fitslope_O equal slope(f_store_msd_O)/6/(10*dt)
+variable fitslope_H equal slope(f_store_msd_H)/6/(10*dt)
+fix 3 all ave/time 100 1 100 c_msd_O[4] c_msd_H[4] v_fitslope_O v_fitslope_H file diffusion.txt
+
+thermo_style custom step temp ke pe etotal press vol
+thermo 100
+thermo_modify format line "%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e"
 
 run 100000
