@@ -21,7 +21,7 @@ The objectives of this tutorial session are:
 
 ## Prerequisites
 
-It is assumed that the student is familiar with the linux command line. A working executable of LAMMPS and the DeePMD-kit.
+It is assumed that the student is familiar with the linux command line. A working executable of LAMMPS and the DeePMD-kit is required.
 
 ## Part 1: Molecular dynamics simulations 
 
@@ -85,5 +85,6 @@ You can visualize the trajectory and test modifiers such as ```Create bonds``` a
 Discuss the physics of this model in the light of the results obtained for the radial distribution functions, diffusion coefficient, and the visualization.
 What are the differences with empirical models?
 
-### Superionic ice
+### Superionic ice and ionic fluid
 
+We will n
