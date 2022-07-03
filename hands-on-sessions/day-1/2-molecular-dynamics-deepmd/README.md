@@ -74,6 +74,16 @@ We will use this trajectory to compute the mean squared displacement and we will
 Further details can be found in the Jupyter Notebook ```liquid_water/Diffusion/H2O_Diffusion.ipynb```.
 
 The last task of this section is to **visualize the trajectory** using [Ovito](https://www.ovito.org/).
+If needed, copy the LAMMPS dump and data files to your local computer using, for instance,
+```
+scp -P <port> <username>@<remote-machine-address>:~/workshop-july-2022/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/liquid_water/RDF/water* .
+```
+Now open the data file using ```ovito water.lammps-data```.
+To load the trajectory use the modifier ```Load trajectory``` and choose the file ```water.lammps-dump-text```.
+You can visualize the trajectory and test modifiers such as ```Create bonds``` and ```Smooth trajectory``` with window size 10.
 
+Discuss the physics of this model in the light of the results obtained for the radial distribution functions, diffusion coefficient, and the visualization.
+What are the differences with empirical models?
 
+### Superionic ice
 

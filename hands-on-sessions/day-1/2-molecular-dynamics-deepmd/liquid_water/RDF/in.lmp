@@ -1,7 +1,7 @@
 units metal
 atom_style atomic
 boundary p p p
-read_data data.h2o_equi
+read_data water.lammps-data
 pair_style deepmd ../../frozen_model_compressed.pb
 pair_coeff * *
 

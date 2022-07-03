@@ -9,8 +9,8 @@ LAMMPS data file via write_data, version 29 Sep 2021, timestep = 10000
 
 Masses
 
-1 15.999
-2 1.00784
+1 15.999 # O
+2 1.00784 # H
 
 Atoms # atomic
 
