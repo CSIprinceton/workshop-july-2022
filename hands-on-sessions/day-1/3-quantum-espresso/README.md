@@ -10,13 +10,14 @@ This tutorial will demonstrate basic usage of the PW module of Quantum-ESPRESSO,
 
 ## Outline
 
-This tutorial will accomplish the following:
+This tutorial will cover the following:
 - Necessary files and scripts for running QE calculations
-- Anatomy of the QE input file + the physical and practical significance of various parameters
-- Submitting QE jobs
-- Benchmarking DFT parameters: an incomplete guide 
-- Relationship between input file and atomic/crystal structure
+- Anatomy of the QE input file + the significance of various parameters
+  - Relationship between input file and atomic/crystal structure
+- Submitting QE jobs 
 - Parsing and understanding QE output
+- Benchmarking DFT parameters
+- Geometry relaxation
 - Additional considerations + links
 
 ## Prerequisites
@@ -34,6 +35,8 @@ Running jobs with the PWSCF module of QE requires at minimum:
 Different types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize a [ONCV pseudopotentials](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psp library") optimized for PBE calcultions.
 
 As mentioned previously, the pw.x executable and environment will be readily available to participants of the tutorial.
+
+--> Those using the VMs should disable conda for this portion of the tutorial.
 
 Now we will begin by dissecting the QE input file using bulk Si as an example.
 
@@ -109,13 +112,31 @@ Last, `K_POINTS` refers to the sampling of the Brillouin Zone performed in the c
 
 With all of our necessary components ready we can run a simple QE job. In the tutorial virtual machines you may run these from the command line, but for best practices we will use a submit script `sub.sh`.
 
-Run the job by doing:
+Run the job by:
 
 ```
-sbatch sub.sh
+TBD
+```
+**TBD once I have access to VMs
+
+Now let's try running the job on multiple CPUs. We are going to modify the submit script as follows:
+
+```
+TBD -n 2
 ```
 
-*TBD once I have access to VMs*
+### Parsing QE Output
+
+To quickly see the final energy of the SCF calculation, do:
+```
+grep ! si.log
+```
+
+We can also see how long the calculation took by looking at the last few lines of the output:
+```
+tail -n 15 si.log
+```
+and looking at the `CPU` and `WALL` time.
 
 ### Benchmarking DFT protocol
 
@@ -133,7 +154,10 @@ Ecutwfc:
 
 *Add time to convergence
 
-### Parsing QE Output
+### Geometry perturbations and relaxation
+
+```
+&ions
 
 *Add Si @ different geometries and show atomic forces
 
