@@ -78,7 +78,9 @@ Interpret and discuss the meaning of these functions.
 
 Let's now turn to study the **diffusion coefficient** of oxigen and hydrogen.
 During the previous MD run we computed the mean squared displacement and we used it to compute the diffusion coefficient using Einstein's formula,
-<img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{6}\frac{\mathrm{d}}{\mathrm{d}t}\langle\frac{1}{N}\sum_{i=1}^{N}(\mathbf{r}_i(t)-\mathbf{r}_i(0))^2\rangle">
+
+$$ D=\frac{1}{6}\frac{\mathrm{d}}{\mathrm{d}t}\langle\frac{1}{N}\sum_{i=1}^{N}(\mathbf{r}_i(t)-\mathbf{r}_i(0))^2\rangle $$
+
 These are the relevant lines in the LAMMPS input file:
 ```
 compute msd_O Oatoms msd
