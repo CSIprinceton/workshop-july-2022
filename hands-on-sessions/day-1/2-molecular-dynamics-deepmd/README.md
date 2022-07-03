@@ -27,6 +27,8 @@ It is assumed that the student is familiar with the linux command line. A workin
 
 In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water and ice using DeePMD and LAMMPS.
 
+### Liquid water at ambient conditions
+
 Let's explore the LAMMPS input file ```liquid_water/RDF/in.lmp```.
 During the tutorial we will briefly describe all lines.
 We will focus on the lines that determine the potential driving the dynamics:
@@ -51,14 +53,17 @@ This simulation should take a few minutes to finish.
 We have computed the radial distribution function on-the-fly in LAMMPS.
 Now plot the partial distributions functions O-O, O-H, and H-H that are found in ```h2o.rdf```.
 
-An example of plots obtained using matplolib and jupyter notebooks is found in ```H2O_RDF.ipynb```.
-You can run the jupyter notebook on the virtual machine and open it in your local browser.
-In order to do this, first execute on the remote machine:
-```
-nohup jupyter notebook --port=2333 &
-```
-and then run in your local machine:
-```
-ssh -N -f -L localhost:2333:localhost:2333 -p <port> <username>@<remote-machine-address>
-```
-At the end of this file you will find a link that you can copy and then paste into your browser.
+> **_TIP:_**  
+> An example of plots obtained using matplolib and jupyter notebooks is found in ```H2O_RDF.ipynb```.
+> You can run the jupyter notebook on the virtual machine and open it in your local browser.
+> In order to do this, first execute on the remote machine:
+> ```
+> nohup jupyter notebook --port=2333 &
+> ```
+> and then run in your local machine:
+> ```
+> ssh -N -f -L localhost:2333:localhost:2333 -p <port> <username>@<remote-machine-address>
+> ```
+> At the end of the ```nohup.out``` file you will find a link that you can copy and then paste into your browser.
+
+
