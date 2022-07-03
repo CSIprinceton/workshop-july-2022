@@ -55,6 +55,7 @@ We have computed the **radial distribution function** (RDF) on-the-fly in LAMMPS
 compute myRDF all rdf 100 1 1 1 2 2 2
 fix 2 all ave/time 100 1 100 c_myRDF[*] file h2o.rdf mode vector ave running
 ```
+You can find more information in [LAMMPS documentation](https://docs.lammps.org/compute_rdf.html).
 Obtain the final, averaged radial distribution functions using:
 ```
 tail -n 101 h2o.rdf > myrdf.txt
@@ -76,7 +77,8 @@ Interpret and discuss the meaning of these functions.
 > At the end of the ```nohup.out``` file you will find a link that you can copy and then paste into your browser.
 
 Let's now turn to study the **diffusion coefficient** of oxigen and hydrogen.
-During the previous MD run we computed the mean squared displacement and we used it to compute the diffusion coefficient using Einstein's formula.
+During the previous MD run we computed the mean squared displacement and we used it to compute the diffusion coefficient using Einstein's formula,
+<img src="https://render.githubusercontent.com/render/math?math=D=\frac{1}{6}\frac{\mathrm{d}}{\mathrm{d}t}\langle\frac{1}{N}\sum_{i=1}^{N}(\mathbf{r}_i(t)-\mathbf{r}_i(0))^2\rangle">
 These are the relevant lines in the LAMMPS input file:
 ```
 compute msd_O Oatoms msd
