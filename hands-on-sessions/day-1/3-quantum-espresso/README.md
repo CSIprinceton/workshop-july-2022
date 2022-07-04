@@ -32,7 +32,11 @@ Running jobs with the PWSCF module of QE requires at minimum:
 2) an input file
 3) pseudopotentials in UPF format 
 
-Different types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize a [ONCV pseudopotentials](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psp library") optimized for PBE calcultions.
+Different types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize an [ONCV pseudopotential](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psp library") for Si optimized for PBE calcultions. To retrieve this pseudopotential do the following:
+
+```
+wget http://quantum-simulation.org/potentials/sg15_oncv/upf/Si_ONCV_PBE-1.0.upf
+```
 
 As mentioned previously, the pw.x executable and environment will be readily available to participants of the tutorial.
 
