@@ -55,7 +55,7 @@ We have computed the **radial distribution function** (RDF) on-the-fly in LAMMPS
 compute myRDF all rdf 100 1 1 1 2 2 2
 fix 2 all ave/time 100 1 100 c_myRDF[*] file h2o.rdf mode vector ave running
 ```
-You can find more information in [LAMMPS documentation](https://docs.lammps.org/compute_rdf.html).
+You can find more information in the [LAMMPS documentation](https://docs.lammps.org/compute_rdf.html).
 Obtain the final, averaged radial distribution functions using:
 ```
 tail -n 101 h2o.rdf > myrdf.txt
@@ -110,6 +110,14 @@ What are the differences with empirical models?
 ### Superionic ice
 
 We will now study the transition from molecular ice VII, to superionic ice VII'', and to an ionic fluid.
+Snapshots of these phases are shown below.
+
+<p float="left">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ice-vii.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ice-viipp.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ionic-fluid.png" width="250">
+</p>
+
 You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
 As in the exercise above, first run the MD simulations in each folder.
 Then plot the radial distribution functions, the diffusion coefficient, and visualize the trajectories.
@@ -122,5 +130,14 @@ In the previous section, we learned to run MD simulations using deep potentials.
 Let's now see the tools available to create our own ab initio machine learning models.
 Most models are trained in an iterative fashion using an active (or [concurrent](https://arxiv.org/abs/1910.12690)) learning approach.
 
-<img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/active_learning.png" width="250">
+<p align="center">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/active_learning.png" width="350">
+</p>
+
+There are different options to obtain the configurations to start training the model:
+- Extracting configuration from an ab initio molecular dynamics simulation
+- Creating perturbations of the atomic coordinates starting from the equilibrium positions of a crystal structure
+- Extracting configurations from an MD simulation driven by an empirical model or an available ab initio machine learning model (possibly trained at a different level of theory)
+
+
 
