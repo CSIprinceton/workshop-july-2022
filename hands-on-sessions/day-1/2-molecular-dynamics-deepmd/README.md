@@ -185,10 +185,5 @@ One is calculating the root mean squared error in the forces and energy using
 ```
 dp test -m <path/to/model>
 ```
-Do errors have the correct order of magnitude?
-
-
-
-
-
+Do errors have the correct order of magnitude? 
 
