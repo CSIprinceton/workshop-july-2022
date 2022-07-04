@@ -21,7 +21,7 @@ The objectives of this tutorial session are:
 
 ## Prerequisites
 
-It is assumed that the student is familiar with the linux command line. A working executable of LAMMPS and the DeePMD-kit.
+It is assumed that the student is familiar with the linux command line. A working executable of LAMMPS and the DeePMD-kit is required.
 
 ## Part 1: Molecular dynamics simulations 
 
@@ -138,6 +138,57 @@ There are different options to obtain the configurations to start training the m
 - Extracting configuration from an ab initio molecular dynamics simulation
 - Creating perturbations of the atomic coordinates starting from the equilibrium positions of a crystal structure
 - Extracting configurations from an MD simulation driven by an empirical model or an available ab initio machine learning model (possibly trained at a different level of theory)
+
+We will assume that appropriate training data has been obtained.
+More on this topic will be covered in [tutorial session 6](https://github.com/CSIprinceton/workshop-july-2022/tree/main/hands-on-sessions/day-2/6-dp-gen).
+Data for liquid water and ice Ih is provided in folders ```training/TrainingData/liquid-water-?``` and ```training/TrainingData/ice-and-liquid```.
+These folders contain the following files:
+```
+coord.raw
+box.raw
+energy.raw
+force.raw
+type.raw
+```
+The appropriate format of these files is described in the [manual](https://docs.deepmodeling.com/projects/deepmd/en/master/data/system.html).
+These files can be converted into a data type supported by the DeePMD-kit using the ```raw_to_set.sh``` script (see [manual](https://docs.deepmodeling.com/projects/deepmd/en/master/data/data-conv.html) for details).
+
+Let's use this data for **training** a model that describes liquid water and ice Ih.
+An appropriate input file for training is provided in ```training/Train```.
+The input file is named ```input.json``` and we will describe the meaning of the different lines during the tutorial.
+The training procedure can be started with the commands:
+```
+conda activate deepmd
+dp train input.json
+```
+Information about the training procedure is found in the file ```lcurve.out``` and this is an excerpt of this file:
+```
+#  step      rmse_trn    rmse_e_trn    rmse_f_trn         lr
+      0      2.56e+01      1.62e-01      8.10e-01    2.0e-03
+   2000      4.17e+00      1.16e-02      1.32e-01    2.0e-03
+   4000      3.55e+00      5.75e-02      1.12e-01    2.0e-03
+   6000      2.85e+00      1.25e-02      1.05e-01    1.5e-03
+   8000      2.87e+00      8.20e-03      1.06e-01    1.5e-03
+  10000      2.64e+00      9.35e-03      1.13e-01    1.1e-03
+```
+The columns show the total root mean squared training error, the energy root mean squared error, the forces root mean squared error,and the learning rate.
+It is useful to plot steps vs error to monitor the progress of the training.
+Typical errors are around 1 meV/atom for the energy and 0.1 eV/A for the forces.
+
+Once the training is complete, we can **freeze** the model using ```dp freeze```.
+This will create a deep potential file ```frozen_model.pb``` that can be used for inference (running MD or simply computing energies/forces).
+It is useful to **compress** the model using ```dp compress -i frozen_model.pb -t input.json```.
+This will create a model ```frozen_model_compressed.pb``` that can perform inference significantly faster than ```frozen_model.pb```.
+
+We can analyze the performance of our model in several ways.
+One is calculating the root mean squared error in the forces and energy using
+```
+dp test -m <path/to/model>
+```
+Do errors have the correct order of magnitude?
+
+
+
 
 
 
