@@ -113,9 +113,9 @@ We will now study the transition from molecular ice VII, to superionic ice VII''
 Snapshots of these phases are shown below.
 
 <p float="left">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ice-vii.png" width="250">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ice-viipp.png" width="250">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ionic-fluid.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/ice-vii.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/ice-viipp.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/ionic-fluid.png" width="250">
 </p>
 
 You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
@@ -131,7 +131,7 @@ Let's now see the tools available to create our own ab initio machine learning m
 Most models are trained in an iterative fashion using an active (or [concurrent](https://arxiv.org/abs/1910.12690)) learning approach.
 
 <p align="center">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/active_learning.png" width="350">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/active_learning.png" width="350">
 </p>
 
 There are different options to obtain the configurations to start training the model:
