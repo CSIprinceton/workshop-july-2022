@@ -2,7 +2,7 @@
 
 Hands-on sessions - Day 1 - July 7, 2022
 
-Fundamentals of using Quantum-ESPRESSO for plane-wave DFT calculations of energies and forces in periodic systems.
+Fundamentals of using Quantum-ESPRESSO for plane-wave DFT calculations of extended systems.
 
 ## Objectives
 
@@ -12,35 +12,33 @@ This tutorial will demonstrate basic usage of the PW module of Quantum-ESPRESSO,
 
 This tutorial will cover the following:
 - Necessary files and scripts for running QE calculations
-- Anatomy of the QE input file + the significance of various parameters
-  - Relationship between input file and atomic/crystal structure
+- Anatomy of the QE input file 
 - Submitting QE jobs 
 - Parsing and understanding QE output
 - Benchmarking DFT parameters
 - Geometry relaxation
-- Additional considerations + links
 
 ## Prerequisites
 
 It is assumed that the participant has a general understanding of quantum mechanical calculations and proficiency with the linux command line. Additional experience with plane-wave basis sets, crystal structure, and other solid-state physics concepts will also be helpful. This tutorial is furthermore written for Workshop participants who will have access to virtual machines which have QE v6.4.1 compiled. Instructions for downloading and compiling QE can be found at https://github.com/QEF/q-e.
 
-## Getting Started with Quantum-ESPRESSO
+## Getting Started 
 
 Running jobs with the PWSCF module of QE requires at minimum: 
 
-1) the pw.x executable and its corresponding environment
-2) an input file
-3) pseudopotentials in UPF format 
+1) The `pw.x` executable and its corresponding environment
+2) Pseudopotentials in UPF format 
+3) An input file
+
+As mentioned previously, the `pw.x` executable and environment will be readily available to participants of the tutorial. You can find the executable in the VM at `~/QE/q-e-qe-6.4.1/bin/pw.x`. 
+
+--> Those using the VMs should disable conda for this portion of the tutorial. If it is loaded just `exit`.
 
 Different types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize an [ONCV pseudopotential](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psp library") for Si optimized for PBE calcultions. To retrieve this pseudopotential do the following:
 
 ```
 wget http://quantum-simulation.org/potentials/sg15_oncv/upf/Si_ONCV_PBE-1.0.upf
 ```
-
-As mentioned previously, the pw.x executable and environment will be readily available to participants of the tutorial.
-
---> Those using the VMs should disable conda for this portion of the tutorial.
 
 Now we will begin by dissecting the QE input file using bulk Si as an example.
 
@@ -160,10 +158,16 @@ Ecutwfc:
 
 ### Geometry perturbations and relaxation
 
+*Add Si @ different geometries and show atomic forces
+
+*Relax + vc-relax calculation
 ```
 &ions
+```
 
-*Add Si @ different geometries and show atomic forces
+```
+&cell
+```
 
 ### Additional considerations and links
 
