@@ -98,13 +98,16 @@ The main issue is that DeePMD-kit has tensorflow as a dependency and its compila
 We will use the Ovito visualization software to analyze the simulations in other tutorial sessions during the workshop.
 Lets install it in your laptop or desktop computer!
 The procedure is quite simple and you can find it [here](https://www.ovito.org/).
-If you are using linux you can download a tarball file using this [link](https://www.ovito.org/download/3106/).
+
+If you are using **linux** you can download a tarball file using this [link](https://www.ovito.org/download/3106/).
 Then untar the file, cd to the appropriate folder and run,
 ```
 tar -xf ovito-basic-3.7.6-x86_64.tar.xz
 cd ovito-basic-3.7.6-x86_64/bin
 ./ovito
 ```
+
+In **Windows**, just download the executable [here](https://www.ovito.org/) and follow the instructions in your screen.
 
 During the workshop we will give a brief overview of Ovito's usage.
 
@@ -119,6 +122,18 @@ wget http://www.xcrysden.org/download/xcrysden-1.6.2-linux_x86_64-shared.tar.gz
 tar -xf xcrysden-1.6.2-linux_x86_64-shared.tar.gz
 cd xcrysden-1.6.2-bin-shared/bin
 ./xcrys
+```
+
+## Installation of Quantum ESPRESSO
+
+In the [hands-on session 3](https://github.com/CSIprinceton/workshop-july-2022/tree/main/hands-on-sessions/day-1/3-quantum-espresso) we will illustrate basic concepts about DFT calculations using [Quantum ESPRESSO](https://www.quantum-espresso.org/). 
+The basic installation steps for version 6.4.1 are,
+```
+wget https://github.com/QEF/q-e/archive/qe-6.4.1.tar.gz
+tar -xf qe-6.4.1.tar.gz
+cd q-e-qe-6.4.1
+./configure
+make -j 4 all
 ```
 
 ## Navigating the DP library
