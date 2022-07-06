@@ -1,4 +1,4 @@
-variable        NSTEPS          equal 20000
+variable        NSTEPS          equal 10000
 variable        THERMO_FREQ     equal 100
 variable        DUMP_FREQ       equal 200
 variable        dt              equal 0.0005
