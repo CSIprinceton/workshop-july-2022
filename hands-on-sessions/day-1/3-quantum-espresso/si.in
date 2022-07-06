@@ -1,0 +1,30 @@
+ &control
+   restart_mode = 'from_scratch',
+   calculation  = 'scf',
+   prefix       = 'si',
+   outdir       = './',
+   pseudo_dir = './',
+   tprnfor = .true.,
+ /
+ &system
+    ibrav=2, 
+    celldm(1) = 10.20, 
+    nat=2, 
+    ntyp=1,
+    ecutwfc=24.0
+    input_dft='pbe'
+ /
+ &electrons
+    conv_thr    = 1.D-6,
+    mixing_beta = 0.5D0,
+    startingwfc = 'atomic+random',
+    startingpot = 'atomic',
+ /
+ATOMIC_SPECIES
+ Si  28.086  Si_ONCV_PBE-1.0.upf 
+ATOMIC_POSITIONS (alat)
+ Si 0.00 0.00 0.00
+ Si 0.25 0.25 0.25
+K_POINTS automatic
+ 4 4 4 1 1 1
+
