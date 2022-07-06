@@ -21,7 +21,7 @@ group           virtual_atom type 3
 # bond between real and its corresponding virtual site should be given
 # to setup a map between real and virtual atoms. However, no real
 # bonded interaction is applied, thus bond_sytle "zero" is used.
-pair_style      deepmd ../train/model.pb
+pair_style      deepmd ./model.pb
 pair_coeff      * *
 bond_style      zero
 bond_coeff      *

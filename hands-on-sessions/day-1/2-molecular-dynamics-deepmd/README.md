@@ -27,7 +27,7 @@ It is assumed that the student is familiar with the linux command line. A workin
 
 In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water and ice using DeePMD and LAMMPS.
 
-Let's explore the LAMMPS input file ```liquid_water/RDF/in.lmp```.
+Let's explore the LAMMPS input file ```liquid_water/300K/in.lmp```.
 During the tutorial we will briefly describe all lines.
 We will focus on the lines that determine the potential driving the dynamics:
 ```
@@ -44,7 +44,7 @@ The second line determines the species that are affected by this model. It must 
 
 Now let's run a simulation.
 We will simulate liquid water at constant temperature 300 K and constant pressure 1 bar (NPT ensemble).
-cd to the folder ```liquid_water/RDF``` and run:
+cd to the folder ```liquid_water/300K``` and run:
 ```
 conda activate deepmd
 lmp -in in.lmp
@@ -93,7 +93,7 @@ fix 3 all ave/time 100 1 100 c_msd_O[4] c_msd_H[4] v_fitslope_O v_fitslope_H fil
 ```
 The output can be found in the file ```diffusion.txt```.
 Plot the MSD as a function of time, and the estimated diffusion coefficient vs time.
-An alternative approach to the calculation of the diffusion coefficient is described in the Jupyter Notebook ```liquid_water/Diffusion/H2O_Diffusion.ipynb```.
+An alternative approach to the calculation of the diffusion coefficient is described in the Jupyter Notebook ```liquid_water/optional_nve_diffusion/H2O_Diffusion.ipynb```.
 
 The last task of this section is to **visualize the trajectory** using [Ovito](https://www.ovito.org/).
 If needed, copy the LAMMPS dump and data files to your local computer using, for instance,
@@ -113,9 +113,9 @@ We will now study the transition from molecular ice VII, to superionic ice VII''
 Snapshots of these phases are shown below.
 
 <p float="left">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ice-vii.png" width="250">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ice-viipp.png" width="250">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/ionic-fluid.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/ice-vii.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/ice-viipp.png" width="250">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/ionic-fluid.png" width="250">
 </p>
 
 You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
@@ -131,7 +131,7 @@ Let's now see the tools available to create our own ab initio machine learning m
 Most models are trained in an iterative fashion using an active (or [concurrent](https://arxiv.org/abs/1910.12690)) learning approach.
 
 <p align="center">
-  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/active_learning.png" width="350">
+  <img src="https://github.com/CSIprinceton/workshop-july-2022/raw/main/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/images/active_learning.png" width="350">
 </p>
 
 There are different options to obtain the configurations to start training the model:
