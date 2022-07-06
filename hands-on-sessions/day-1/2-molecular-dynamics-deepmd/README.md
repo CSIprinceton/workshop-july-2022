@@ -17,7 +17,6 @@ The objectives of this tutorial session are:
 - Understand that deep potentials are reactive, flexible, and polarizable
 - Learn to train a model that reproduces an ab initio potential energy surface
 - Use of the commands ```dp train``` and ```dp test``` of the DeePMD-kit
-- Understand the json input file of ```dp train```
 - Understand that regions of configuration space that are not well represented in the training set are not well described by the trained model
 
 ## Prerequisites
@@ -213,7 +212,7 @@ What is the spread of this distribution?
 Another way to characterize the errors is using the idea of a committee of models.
 This technique is of the utmost importance to characterize the **generalization error** of the models.
 We will use this idea in the context of active learning in [tutorial session 6](https://github.com/CSIprinceton/workshop-july-2022/tree/main/hands-on-sessions/day-2/6-dp-gen).
-Using the DeePMD-kit we can calculate the generalization error in the forces using the root mean square error (RMSE) between N models.
+Using the DeePMD-kit we can calculate the generalization error in the forces using the root mean square error (RMSE) between N models trained on the same data but different random seeds.
 This is done using the following lammps input,
 ```
 pair_style deepmd frozen_model_1.pb frozen_model_2.pb frozen_model_3.pb frozen_model_4.pb out_file md.out out_freq 10
