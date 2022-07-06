@@ -47,7 +47,7 @@ and follow the instructions within that script.
 
 Now that conda is installed, the deepmd-kit is simply installed with the command:
 ```
-conda create -n deepmd deepmd-kit=*=*cpu libdeepmd=*=*cpu lammps-dp -c https://conda.deepmodeling.org
+conda create -n deepmd deepmd-kit=*=*cpu libdeepmd=*=*cpu lammps -c https://conda.deepmodeling.com
 ```
 This command creates a conda environment ```deepmd``` and installs all the dependencies that are needed.
 See the [manual](https://docs.deepmodeling.com/projects/deepmd/en/stable/install/easy-install.html#install-with-conda) for alternatives and for a suitable command to install a GPU version.
@@ -56,7 +56,7 @@ You can then enable the environment by running:
 ```
 conda activate deepmd
 ```
-and test that the ```dp``` (DeePMD-kit) and the ```lmp_mpi``` (LAMMPS) executables are available. 
+and test that the ```dp``` (DeePMD-kit) and the ```lmp``` (LAMMPS) executables are available. 
 If that works, congratulations! You are ready to do molecular dynamics simulations driven by ab initio machine learning potentials and much more!
 
 #### Docker
@@ -70,12 +70,12 @@ sudo apt install docker.io
 ```
 Next you can get the image with:
 ```
-docker pull ghcr.io/deepmodeling/deepmd-kit:2.0.0_cuda10.1_gpu
+docker pull ghcr.io/deepmodeling/deepmd-kit:2.1.3_cuda10.2_gpu
 ```
 See also other available images in the DeePMD-kit [manual](https://docs.deepmodeling.com/projects/deepmd/en/stable/install/easy-install.html#install-with-docker).
 The docker image can be run with the command:
 ```
-docker run -it ghcr.io/deepmodeling/deepmd-kit:2.0.0_cuda10.1_gpu
+docker run -it ghcr.io/deepmodeling/deepmd-kit:2.1.3_cuda10.2_gpu
 ```
 and you can test that the executables ```dp``` and ```lmp``` are available. 
 
