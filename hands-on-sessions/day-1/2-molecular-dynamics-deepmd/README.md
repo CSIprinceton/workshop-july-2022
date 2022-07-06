@@ -1,4 +1,5 @@
-# Deep Modeling for Molecular Simulation
+# Molecular dynamics driven by deep potentials
+
 Hands-on sessions - Day 1 - July 7, 2022
 
 Molecular dynamics driven by deep potentials and learning the potential energy surface using DeePMD
@@ -186,4 +187,40 @@ One is calculating the root mean squared error in the forces and energy using
 dp test -m <path/to/model>
 ```
 Do errors have the correct order of magnitude? 
+
+We can also analyze the **correlation** between the energies obtained with DFT and inferred using the model.
+This task can be easily accomplished using the following Python code snippet,
+```
+import dpdata
+import numpy as np
+from deepmd.infer import DeepPot
+
+dp = DeepPot('frozen_model.pb')
+system = dpdata.LabeledSystem('training/TrainingData/ice-and-liquid', fmt = 'deepmd/raw')
+e, f, v = dp.eval(system['coords'], system['cells'], system['atom_types'])
+energy_model = e.reshape([-1])
+energy_dft=np.genfromtxt("training/TrainingData/ice-and-liquid/energy.raw")
+```
+Plot and analyze the correlation between ```energy_model``` and ```energy_dft```.
+An example is provided in ```training/Test/script_correlation.py```.
+Is the correlation between these quantities linear? Why is this so?
+
+It is also frequent to plot the **distribution of errors** ```energy_model-energy_dft```.
+Construct a histogram of this quantity (see example in ```training/Test/script_errors.py```).
+What common probability distribution does this histogram resemble?
+What is the spread of this distribution?
+
+Another way to characterize the errors is using the idea of a committee of models.
+This technique is of the utmost importance to characterize the **generalization error** of the models.
+We will use this idea in the context of active learning in [tutorial session 6](https://github.com/CSIprinceton/workshop-july-2022/tree/main/hands-on-sessions/day-2/6-dp-gen).
+Using the DeePMD-kit we can calculate the generalization error in the forces using the root mean square error (RMSE) between N models.
+This is done using the following lammps input,
+```
+pair_style deepmd frozen_model_1.pb frozen_model_2.pb frozen_model_3.pb frozen_model_4.pb out_file md.out out_freq 10
+pair_coeff * *
+```
+that will print the average, minimum, and maximum error to the file ```md.out```.
+Run an MD simulation of liquid water at ambient conditions, and a simulation of ice VII''.
+An example is provided in ```training/CommitteeError```.
+Why is the error larger for ice VII'' than for liquid water?
 

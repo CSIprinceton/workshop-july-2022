@@ -1,0 +1,16 @@
+units metal
+atom_style atomic
+boundary p p p
+read_data water.lammps-data
+pair_style deepmd frozen_model_1.pb frozen_model_2.pb frozen_model_3.pb frozen_model_4.pb out_file md.out out_freq 10
+pair_coeff * *
+
+timestep 0.0005
+
+fix 1 all npt temp 300 300 0.05 iso 1.0 1.0 0.5
+
+thermo_style custom step temp ke pe etotal press vol
+thermo 100
+thermo_modify format line "%d %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e %.6e"
+
+run 100000
