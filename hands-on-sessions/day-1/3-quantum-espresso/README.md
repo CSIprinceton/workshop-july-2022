@@ -33,7 +33,7 @@ Running jobs with the PWSCF module of QE requires at minimum:
 
 As mentioned previously, the `pw.x` executable and environment are readily available to participants with access to the VM. You can find the executable in the VM at `~/QE/q-e-qe-6.4.1/bin/pw.x`. Otherwise, follow the instructions for downloading and compiling QE on your machine.
 
---> Those using the VMs with the `deepmd` conda environment loaded can simply call `pw.x` without the path. This tutorial was designed to work in the absence of this environment as well. If `deepmd` is loaded you can choose to remove it with `conda deactivate`.
+> Those using the VMs with the `deepmd` conda environment loaded can simply call `pw.x` without the path. This tutorial was designed to work in the absence of this environment. If `deepmd` is loaded it is recommended that you remove it with `conda deactivate`.
 
 Different types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize an [ONCV pseudopotential](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psp library") for Si optimized for PBE calcultions. To retrieve this pseudopotential do the following:
 
@@ -73,7 +73,11 @@ Next, let's look at the `&system` namelist:
     input_dft='pbe'
  /
 ```
-`ibrav=2` indicates that our system has cubic FCC structure and symmetry, with `celldm(1)` defining the relevant lattice vector in au (bohr). QE's algorithms exploit crystal symmetries to accelerate calculations. Xcrysden can be used to visualize QE input and output files directly. With the corresponding symmetry, you can visualize both the conventional and primitive unit cells.
+`ibrav=2` indicates that our system has cubic FCC structure and symmetry, with `celldm(1)` defining the relevant lattice vector in au (bohr). QE's algorithms exploit crystal symmetries to accelerate calculations. `Xcrysden` can be used to visualize QE input and output files directly. With the corresponding symmetry, you can visualize both the conventional and primitive unit cells. On a machine with `Xcrysden` loaded, go to the directory of `si.in` and do: 
+
+```
+xcrysden --pwi si.in
+```
 
 ![image](https://user-images.githubusercontent.com/59068990/176943208-9a82fdb4-4c79-4393-872e-769a85220924.png)
 
@@ -172,7 +176,9 @@ We can also see how long the calculation took by looking in the last few lines o
 PWSCF        :      0.23s CPU      0.91s WALL
 ```
 
-### Running QE jobs in parallel with `mpirun`
+### Running QE jobs in parallel with `mpirun` 
+
+> `mpirun` is not compatible with the `deepmd` conda environment activated. Do `conda deactivate` if it is or proceed to the exercises and modify the shell scripts accordingly.
 
 Now let's try running the job on multiple CPUs. Let's move to the folder `ncpu`, where you will see a shell script `run_parallel.sh`. Let's look at this script:
 
@@ -223,7 +229,23 @@ Notice that the energy decreases with increasing `ecutwfc`, with diminishing ret
 
 ![image](https://user-images.githubusercontent.com/59068990/176946588-de150d9f-2462-4ac8-b4f5-3d4e0c88a07c.png)
 
-It should be noted that using a larger `ecutwfc` slows down the time to convergence. Do 
+> Plotting with gnuplot on the VM: If you are connecting to the VM from a machine with X11, ssh with -X or -Y. Then you can use gnuplot on the VM. To quickly plot the energy vs `ecutwfc` run the following snippet as a shell script:
+
+> ```
+> for i in 12 18 24 30 36 ; 
+>   do
+>   en=`grep ! "si${i}.log" | awk '{print $5}'`
+>   echo "$i $en" >> ens.dat
+>   done
+> ```
+> Then you can plot this data file with:
+> 
+> ```
+> gnuplot
+> p 'ens.dat' w l title "E (Ry)" 
+> ```
+
+It should also be noted that using a larger `ecutwfc` slows down the time to convergence. Do 
 ```
 grep "PWSCF        :" si??.log
 ```
@@ -245,7 +267,7 @@ We have computed the energy using a range of k-point meshes from 1x1x1 to 6x6x6.
 grep ! si???.log
 ```
 
-Notice that the energy decreases a lot initially with larger k-point samplings and then seems to converge beyond 3x3x3. As with `ecutwfc`, we would want to use a k-point sampling within the converged region. Feel free to plot your energies as shown here.
+Notice that the energy decreases a lot initially with larger k-point samplings and then seems to converge beyond 3x3x3. As with `ecutwfc`, we would want to use a k-point sampling within the converged region. If you can, try modifying the parsing and plotting instructions from the `ecutwfc` section to plot the energy vs. k-point grid size.
 
 ![image](https://user-images.githubusercontent.com/59068990/176946171-a06cdcdb-c34d-4718-a096-965bf16a94d3.png)
 
@@ -311,9 +333,17 @@ Feel free to plot the progressions of the total energy and force as done below (
 
 ![image](https://user-images.githubusercontent.com/59068990/177489923-ac148e5d-7864-484f-9cb2-c63f36a794eb.png)
 
-Now, look at the final coordinates for the two Si atoms. Open the `si-relax.log` file and find the last instance of `ATOMIC_POSITIONS`. You will notice that both Si moved according to the forces on them, so one Si atom is no longer at (0,0,0). Nonetheless, the forces are relaxed below the threshold and we can consider this the equilibrium structure for our computational protocol. You can use `Xcrysden` to visualize the relaxation as an animation and compare the Si-Si distance at the beginning of the calculation vs. at the end.
+Now, look at the final coordinates for the two Si atoms. Open the `si-relax.log` file and find the last instance of `ATOMIC_POSITIONS`. You will notice that both Si moved according to the forces on them, so one Si atom is no longer at (0,0,0). Nonetheless, the forces are relaxed below the threshold and we can consider this the equilibrium structure for our computational protocol. 
+
+You can use `Xcrysden` to visualize the relaxation as an animation. On a machine with `xcrysden` loaded and the log file:
+
+```
+xcrysden --pwo si-relax.log
+```
+
+Select to display all coordinates as an animation. You can also measure the Si-Si distance at the beginning of the calculation vs. at the end by using the `Distance` tool on the bottom of the `xcrysden` GUI, selecting the two atoms, then clicking `Done`.
 
 ### Additional considerations and links
 
-*LibXC, QE for GPUs, etc.
-
+- [LibXC](https://gitlab.com/libxc/libxc/-/releases) is the library QE uses for meta-GGA, hybrid, etc. functionals. Much of the pioneering DPMD work on water was trained with the SCAN functional, which requires LibXC to run in QE.
+- QE has recently released NVidia [GPU-compatible versions](https://gitlab.com/QEF/q-e-gpu/-/tree/gpu-develop). The applications which GPUs currently accelerate are still an area of research.
