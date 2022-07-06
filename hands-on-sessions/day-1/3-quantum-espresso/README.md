@@ -13,16 +13,17 @@ This tutorial will demonstrate basic usage of the PW module of Quantum-ESPRESSO,
 This tutorial will cover the following:
 - Necessary files and scripts for running QE calculations
 - Anatomy of the QE input file 
-- Submitting QE jobs 
+- Submitting QE jobs in serial and parallel
 - Parsing and understanding QE output
-- Benchmarking DFT parameters
-- Geometry relaxation
+- Exercises:
+  - Benchmarking DFT parameters
+  - Geometry relaxation
 
 ## Prerequisites
 
 It is assumed that the participant has a general understanding of quantum mechanical calculations and proficiency with the linux command line. Additional experience with plane-wave basis sets, crystal structure, and other solid-state physics concepts will also be helpful. This tutorial is furthermore written for Workshop participants who will have access to virtual machines which have QE v6.4.1 compiled. Instructions for downloading and compiling QE can be found at https://github.com/QEF/q-e.
 
-## Getting Started 
+## Running a DFT Calculation with QE
 
 Running jobs with the PWSCF module of QE requires at minimum: 
 
@@ -68,7 +69,7 @@ Next, let's look at the `&system` namelist:
     celldm(1) = 10.20,
     nat=2,
     ntyp=1,
-    ecutwfc=12.0
+    ecutwfc=24.0
     input_dft='pbe'
  /
 ```
@@ -93,7 +94,7 @@ Next is `%electrons`:
 
 `conv_thr` is the energy convergence threshold for the SCF calculation. For the purposes of this tutorial we will leave it at the default. Lower values may be justifiable for larger systems further from equilibrium and/or to have an initial converged solution on which to improve. The `mixing_beta` parameter is an internal one related to the step-to-step perturbation of the trial wavefunction. We will not modify it in this tutorial but it is worth mentioning that smaller values typically yield slower but more stable paths to convergence. The `startingwfc` and `startingpot` are the initial wavefuncitons and potentials, respectively. We will not be modifying these keywords in this tutorial.
 
-Lastly we come to the cards associated with the structure and k-points:
+Lastly we come to the cards (note that these are not namelists and have different syntax) associated with the structure and k-points:
 
 ```
 ATOMIC_SPECIES
@@ -102,9 +103,9 @@ ATOMIC_POSITIONS (alat)
  Si 0.00 0.00 0.00
  Si 0.25 0.25 0.25
 K_POINTS automatic
- 1 1 1 1 1 1
+ 4 4 4 1 1 1
 ```
-Note that these cards have different syntax than the above namelists. `ATOMIC_SPECIES` indicates our only species, Si, along with its atomic mass and the name of the corresponding pseudopotential file.
+`ATOMIC_SPECIES` indicates the only species, Si, along with its atomic mass and the name of the corresponding pseudopotential file.
 
 `ATOMIC_POSITIONS` is formatted in a familiar way: the type of atom and its 3D coordinates. In this input file we are exploiting the cubic symmetry so the positions are in units of the lattice vector, denoted by `alat`. This can be modified to `Angstrom` for non-symmetric systems. The two Si atoms are positioned at the typical FCC cubic sites.
 
@@ -112,62 +113,205 @@ Last, `K_POINTS` refers to the sampling of the Brillouin Zone performed in the c
 
 ### Running QE jobs
 
-With all of our necessary components ready we can run a simple QE job. In the tutorial virtual machines you may run these from the command line, but for best practices we will use a submit script `sub.sh`.
+With all of our necessary components ready we can run a simple QE job. In the tutorial virtual machines we will run these from the command line and with shell scripts, however, on larger computing clusters and for longer jobs it is likely that you would prepare a submit script according to the cluster's scheduler (e.g. Slurm/PBS).
 
-Run the job by:
-
-```
-TBD
-```
-**TBD once I have access to VMs
-
-Now let's try running the job on multiple CPUs. We are going to modify the submit script as follows:
+Let's start by simply running the calculation using `si.in` here in the top directory by doing:
 
 ```
-TBD -n 2
+~/QE/q-e-qe-6.4.1/bin/pw.x < si.in
 ```
 
-### Parsing QE Output
+The `<` following the path to the executable should precede the input file. Running the job this way prints the output to terminal. This isn't very practical. Let's re-run the job and write to an output file `si.log`:
 
-To quickly see the final energy of the SCF calculation, do:
 ```
-grep ! si.log
+~/QE/q-e-qe-6.4.1/bin/pw.x < si.in > si.log
 ```
 
-We can also see how long the calculation took by looking at the last few lines of the output:
+Now you will see the same output written to `si.log`. 
+
+### Parsing QE output
+
+So, what happened when we ran the job? In brief, QE iteratively converged the eigenvectors and eigenvalues of the Si system starting from some initial guess. 
+
+To see the total energy of the SCF calculation, open up the log file and find the character `!`. The lines following this total energy will document its constituent terms, say how many iterations were required for convergence, and also print the forces on each atom. For Si at equilibrium, the forces will be zero.
+
 ```
-tail -n 15 si.log
+ !    total energy              =     -15.76056206 Ry
+      Harris-Foulkes estimate   =     -15.76056209 Ry
+      estimated scf accuracy    <       0.00000026 Ry
+ 
+      The total energy is the sum of the following terms:
+ 
+      one-electron contribution =       4.89078263 Ry
+      hartree contribution      =       1.08353893 Ry
+      xc contribution           =      -4.83512504 Ry
+      ewald contribution        =     -16.89975858 Ry
+ 
+      convergence has been achieved in   5 iterations
+ 
+      Forces acting on atoms (cartesian axes, Ry/au):
+ 
+      atom    1 type  1   force =    -0.00000000    0.00000000   -0.00000000
+      atom    2 type  1   force =     0.00000000   -0.00000000    0.00000000
+ 
+      Total force =     0.000000     Total SCF correction =     0.000000
+
 ```
-and looking at the `CPU` and `WALL` time.
+
+Let's also look at the progression of the calculation to convergence with:
+
+```
+grep "total energy              =" si.log
+```
+
+You should see the energy decrease monotonically to the final energy. 
+
+We can also see how long the calculation took by looking in the last few lines of the output:
+
+```
+PWSCF        :      0.23s CPU      0.91s WALL
+```
+
+### Running QE jobs in parallel with `mpirun`
+
+Now let's try running the job on multiple CPUs. Let's move to the folder `ncpu`, where you will see a shell script `run_parallel.sh`. Let's look at this script:
+
+```
+cp ../Si_ONCV_PBE-1.0.upf .
+
+for i in 1 2 3 4 ;
+  do
+  mpirun -np $i ~/QE/q-e-qe-6.4.1/bin/pw.x < si.in > si${i}.log
+  done
+```
+
+Here we are invoking `mpirun` using `-np` to designate the number of processors (CPUs) with which to run the calculation. We will use 1-4 CPUs here with the same input file `si.in` and write different output files `si?.log`. 
+
+Run the script with `./run_parallel.sh`. What differences exist between our job outputs having used different numbers of processors? First, let's check the energies:
+
+```
+grep ! si?.log
+```
+
+The energies should be the same up to at least the first few decimal places. Now let's look at the CPU times:
+
+```
+grep "PWSCF        :" si?.log
+```
+
+You should see that CPU and WALL times decrease with each additional processor used, even for our tiny system. Terrific!
+
+## Exercises: Benchmarking and Geometry
 
 ### Benchmarking DFT protocol
 
-It is critical that one benchmarks their DFT protocol, especially given that the accuracy of the DFT calculation is ultimately what a DP will achieve with sufficient training. Here we will demonstrate how to benchmark two of the most important aspects of QE DFT: `ecutwfc` and the k-points.
+It is critical that one benchmarks their DFT protocol, especially given that the accuracy of the DFT calculation is ultimately what a machine-learned potential will achieve with sufficient training. Here we will demonstrate how to benchmark two of the most important aspects of QE DFT: `ecutwfc` and the number of k-points.
 
-K-points:
+1. `Ecutwfc`:
 
-![image](https://user-images.githubusercontent.com/59068990/176946171-a06cdcdb-c34d-4718-a096-965bf16a94d3.png)
+In plane-wave DFT calculations, one should use a plane-wave energy cutoff that is sufficiently high such that the computed energy for a sample system is stable with respect to this cutoff.
 
-*Add time to convergences
+Move to the directory `ecut`. Therein you will find a shell script, `run_ecut.sh`. This script will write copies of `../si.in` here with modified values of `ecutwfc` and run the calculations. In other words, we are exploring how the number of plane-waves (basis set size) affects the energy and time to solution. Run this script doing `./run_ecut.sh`.
 
-Ecutwfc:
+Let's first look at what our input files look like with `grep ecutwfc si??.in`. They represent a range of energy cutoffs from 12-36 Ry. Next, let's look at the computed energies with
+
+```
+grep ! si??.log
+```
+
+Notice that the energy decreases with increasing `ecutwfc`, with diminishing returns at higher and higher values. A properly benchmarked calculation would use a `ecutwfc` from beyond the point at which the energy doesn't change much. Feel free to plot your computed energies vs. `ecutwfc` as shown here.
 
 ![image](https://user-images.githubusercontent.com/59068990/176946588-de150d9f-2462-4ac8-b4f5-3d4e0c88a07c.png)
 
-*Add time to convergence
-
-### Geometry perturbations and relaxation
-
-*Add Si @ different geometries and show atomic forces
-
-*Relax + vc-relax calculation
+It should be noted that using a larger `ecutwfc` slows down the time to convergence. Do 
 ```
-&ions
+grep "PWSCF        :" si??.log
 ```
+to see the calculation times.
+
+2. K-points:
+
+Similarly, one should converge the energy with respect to the number of k-points sampled in a periodic system. This may not be applicable to liquid systems with large system sizes. But, for an extended solid it is critical.
+
+Move to the directory `kpoints`. Therein you will find a shell script, `run_kp.sh`. This script will write copies of `../si.in` here with modified values of in the `K_POINTS` card and run the calculations. Run this script doing `./run_kp.sh`.
+
+Let's first look at what our input files look like with 
+```
+grep -A 1 K_POINTS si???.in
+```
+We have computed the energy using a range of k-point meshes from 1x1x1 to 6x6x6. For partially periodic systems (e.g. solid interfaces) one may use higher k-point samplings in the periodic dimensions. Now, look at the computed energies with
 
 ```
-&cell
+grep ! si???.log
 ```
+
+Notice that the energy decreases a lot initially with larger k-point samplings and then seems to converge beyond 3x3x3. As with `ecutwfc`, we would want to use a k-point sampling within the converged region. Feel free to plot your energies as shown here.
+
+![image](https://user-images.githubusercontent.com/59068990/176946171-a06cdcdb-c34d-4718-a096-965bf16a94d3.png)
+
+Once again, the more accurage/stable calculations will take a bit longer. Look at the computation times with:
+
+```
+grep "PWSCF        :" si???.log
+```
+
+### Geometry relaxation
+
+Let's see what happens when we perturb the structure of our Si unit cell. Go to the `geom` directory and run the shell script `run_geom.sh`. This will write a new `si.in` file with the position of the 2nd Si atom moved out of equilibrium. Grep out the total energy from `si.log` and compare it to that from `../si.log`. It should be much higher.
+
+There should also now be non-zero forces on our atoms. Look directly in the output or do
+
+```
+grep -B 5 "Total force" si.log
+```
+
+and you will see the forces on each atom and the total force.
+
+Now let's relax the structure back to equilibrium. First open up `si-relax.in`. You will notice a few differences between this input file and the SCF input file. First, in the `&control` namelist,
+
+```
+calculation  = 'relax',
+```
+
+indicates that this is a relax calculation, not simply an SCF. Also,
+
+```
+forc_conv_thr = 1.0D-4
+```
+is added to the `&control` namelist. This is the force convergence threshold for the calculation. Finally, a relax calculation requires the inclusion of a `&ions` namelist. 
+
+```
+ &ions
+    ion_dynamics = 'bfgs'
+ /
+```
+Various other parameters in this namelist are beyond the scope of this tutorial. BFGS is the default relaxation algorithm. Otherwise note the non-equilibrium position of the Si atoms as we had in the SCF calculation.
+
+To run the relax calculation, do:
+
+```
+mpirun -np 4 ~/QE/q-e-qe-6.4.1/bin/pw.x < si-relax.in > si-relax.log
+```
+
+In a relax calculation, an electronic SCF is converged for every ionic step towards lowering the forces below the threshold. Let's look at the convergence of the electronic energies and reduction of theforces over the course of the relax calculation. 
+
+Energies:
+
+```
+grep ! si-relax.log
+```
+
+Forces:
+
+```
+grep "Total force" si-relax.log
+```
+
+Feel free to plot the progressions of the total energy and force as done below (left and right, respectively):
+
+![image](https://user-images.githubusercontent.com/59068990/177489923-ac148e5d-7864-484f-9cb2-c63f36a794eb.png)
+
+Now, look at the final coordinates for the two Si atoms. Open the `si-relax.log` file and find the last instance of `ATOMIC_POSITIONS`. You will notice that both Si moved according to the forces on them, so one Si atom is no longer at (0,0,0). Nonetheless, the forces are relaxed below the threshold and we can consider this the equilibrium structure for our computational protocol. You can use `Xcrysden` to visualize the relaxation as an animation and compare the Si-Si distance at the beginning of the calculation vs. at the end.
 
 ### Additional considerations and links
 
