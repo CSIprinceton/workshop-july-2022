@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH -N 1
+#SBATCH --ntasks-per-node 28
+#SBATCH -t 0:10:0
+#SBATCH --mem 32G 
+#SBATCH --gres=gpu:1
+
+export OMP_NUM_THREADS=1
+
+module load openmpi/gcc/4.0.1/64 fftw/gcc/openmpi-4.0.1/3.3.8 
+
+PW=~/QE-SVN/bin/pw.x
+
+srun $PW < 01.in >> 01.out
