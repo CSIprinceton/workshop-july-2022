@@ -1,0 +1,62 @@
+{
+  "api_version": "1.0",
+  "deepmd_version": "2.1.2",
+  "train": [
+    {
+      "command": "dp",
+      "machine": {
+        "batch_type": "Shell",
+        "context_type": "local",
+        "local_root": "./",
+        "remote_root": "./tmp"
+      },
+      "resources": {
+        "number_node": 1,
+        "gpu_per_node": 1,
+        "cpu_per_node": 4,
+        "group_size": 1,
+        "queue_name": "",
+        "source_list": []
+      }
+    }
+  ],
+  "model_devi": [
+    {
+      "command": "lmp",
+      "machine": {
+        "batch_type": "Shell",
+        "context_type": "local",
+        "local_root": "./",
+        "remote_root": "./tmp"
+      },
+      "resources": {
+        "number_node": 1,
+        "gpu_per_node": 1,
+        "cpu_per_node": 4,
+        "queue_name": "",
+        "group_size": 1000,
+        "source_list": []
+      }
+    }
+  ],
+  "fp": [
+    {
+      "command": "pw.x < input",
+      "machine": {
+        "batch_type": "Shell",
+        "context_type": "local",
+        "local_root": "./",
+        "remote_root": "./tmp"
+      },
+      "resources": {
+        "number_node": 1,
+        "gpu_per_node": 1,
+        "cpu_per_node": 4,
+        "group_size": 5,
+        "queue_name": "",
+        "source_list": [],
+	"envs": {"OMP_NUM_THREADS": 1}
+      }
+    }
+  ]
+}
