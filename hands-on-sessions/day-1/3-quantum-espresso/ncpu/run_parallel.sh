@@ -1,4 +1,4 @@
-cp ../Si_ONCV_PBE-1.0.upf .
+cp ../Si_ONCV_PBE-1.0.upf ../si.in .
 
 for i in 1 2 3 4 ;
   do
