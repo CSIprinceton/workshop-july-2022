@@ -70,12 +70,12 @@ sudo apt install docker.io
 ```
 Next you can get the image with:
 ```
-docker pull ghcr.io/deepmodeling/deepmd-kit:2.1.3_cuda10.2_gpu
+docker pull ghcr.io/deepmodeling/deepmd-kit:2.1.3_cuda11.6_gpu
 ```
 See also other available images in the DeePMD-kit [manual](https://docs.deepmodeling.com/projects/deepmd/en/stable/install/easy-install.html#install-with-docker).
 The docker image can be run with the command:
 ```
-docker run -it ghcr.io/deepmodeling/deepmd-kit:2.1.3_cuda10.2_gpu
+docker run -it ghcr.io/deepmodeling/deepmd-kit:2.1.3_cuda11.6_gpu
 ```
 and you can test that the executables ```dp``` and ```lmp``` are available. 
 
