@@ -31,9 +31,9 @@ Running jobs with the PWSCF module of QE requires at minimum:
 2) Pseudopotentials in UPF format 
 3) An input file
 
-As mentioned previously, the `pw.x` executable and environment will be readily available to participants of the tutorial. You can find the executable in the VM at `~/QE/q-e-qe-6.4.1/bin/pw.x`. 
+As mentioned previously, the `pw.x` executable and environment are readily available to participants with access to the VM. You can find the executable in the VM at `~/QE/q-e-qe-6.4.1/bin/pw.x`. Otherwise, follow the instructions for downloading and compiling QE on your machine.
 
---> Those using the VMs should disable conda for this portion of the tutorial. If it is loaded just `exit`.
+--> Those using the VMs with the `deepmd` conda environment loaded can simply call `pw.x` without the path. This tutorial was designed to work in the absence of this environment as well, which can be achieved by doing `conda deactivate`.
 
 Different types of pseudopotentials and their underlying physics are beyond the scope of this tutorial, but there are many publically available pseudopotential libraries. This tutorial will utilize an [ONCV pseudopotential](http://quantum-simulation.org/potentials/sg15_oncv/upf/ "ONCV psp library") for Si optimized for PBE calcultions. To retrieve this pseudopotential do the following:
 
