@@ -81,7 +81,7 @@ NB: Crystal structure is beyond the scope of this tutorial, however, it is worth
 
 Straightforwardly, `nat` refers to the number of atoms and `ntyp` is the number of types of atoms. `ecutwfc` refers to the cutoff energy of the basis set planewaves. The higher this value, the more planewaves that are used, resulting in a slower, but more accurate calculation. We will explore the benchmarking of this value shortly. Lastly, `input_dft` indicates the DFT functional to be used in the calculation. The default value of this is the functional associated with the pseudopotential, so we wouldn't need to explicitly state this value in our case since we are using PBE, but it is included here to demonstrate where one would indicate the usage of e.g. SCAN functional.
 
-Next is `%electrons`:
+Next is `&electrons`:
 
 ```
  &electrons
@@ -107,7 +107,7 @@ K_POINTS automatic
 ```
 `ATOMIC_SPECIES` indicates the only species, Si, along with its atomic mass and the name of the corresponding pseudopotential file.
 
-`ATOMIC_POSITIONS` is formatted in a familiar way: the type of atom and its 3D coordinates. In this input file we are exploiting the cubic symmetry so the positions are in units of the lattice vector, denoted by `alat`. This can be modified to `Angstrom` for non-symmetric systems. The two Si atoms are positioned at the typical FCC cubic sites.
+`ATOMIC_POSITIONS` is formatted in a familiar way: the type of atom and its 3D coordinates. In this input file we are exploiting the cubic symmetry so the positions are in units of the lattice vector, denoted by `alat`. This can be modified to `Angstrom` for non-symmetric systems. The two Si atoms form the basis of the cubic diamond crystal structure.
 
 Last, `K_POINTS` refers to the sampling of the Brillouin Zone performed in the calculation. The technical details here are beyond the scope of this tutorial but we will investigate the need to benchmark this value. 
 
