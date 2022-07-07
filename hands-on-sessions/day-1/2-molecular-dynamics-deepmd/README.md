@@ -25,6 +25,7 @@ It is assumed that the student is familiar with the linux command line. A workin
 
 ## Part 1: Molecular dynamics simulations 
 
+*This part needs about 1h to finish.*
 In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water and ice using DeePMD and LAMMPS.
 
 Let's explore the LAMMPS input file ```liquid_water/300K/in.lmp```.
@@ -49,14 +50,27 @@ cd to the folder ```liquid_water/300K``` and run:
 conda activate deepmd
 lmp -in in.lmp
 ```
-This simulation should take a few minutes to finish.
-On our machine with the V100 GPU, it takes about 5 minutes to run 100000 steps. Since our timestep is 0.5 fs, we generate a 50-ps-long trajectory. 
+This simulation consists of 432 atoms, and should take a few minutes to finish.
+On our machine with the V100 GPU, it takes about *5 minutes* to run 100000 steps. Since our timestep is 0.5 fs, we generate a 50-ps-long trajectory. 
 We have computed the **radial distribution function** (RDF) on-the-fly in LAMMPS using these lines:
 ```
 compute myRDF all rdf 100 1 1 1 2 2 2
 fix 2 all ave/time 100 1 100 c_myRDF[*] file h2o.rdf mode vector ave running
 ```
-You can find more information in the [LAMMPS documentation](https://docs.lammps.org/compute_rdf.html).
+We can watch the file `h2o.rdf` by `using head -n 10 h2o.rdf`:
+```
+# Time-averaged data for fix 2
+# TimeStep Number-of-rows
+# Row c_myRDF[1] c_myRDF[2] c_myRDF[3] c_myRDF[4] c_myRDF[5] c_myRDF[6] c_myRDF[7]
+0 100
+1 0.03 0 0 0 0 0 0
+2 0.09 0 0 0 0 0 0
+3 0.15 0 0 0 0 0 0
+4 0.21 0 0 0 0 0 0
+5 0.27 0 0 0 0 0 0
+6 0.33 0 0 0 0 0 0
+```
+You need to check the [LAMMPS documentation](https://docs.lammps.org/compute_rdf.html) to find out what these colume are.
 Obtain the final, averaged radial distribution functions using:
 ```
 tail -n 101 h2o.rdf > myrdf.txt
@@ -97,7 +111,7 @@ variable fitslope_H equal slope(f_store_msd_H)/6/(10*dt)
 fix 3 all ave/time 100 1 100 c_msd_O[4] c_msd_H[4] v_fitslope_O v_fitslope_H file diffusion.txt
 ```
 The output can be found in the file ```diffusion.txt```.
-Plot the MSD as a function of time, and the estimated diffusion coefficient vs time.
+Plot the MSD as a function of time, and the estimated diffusion coefficient vs time. You can use the jupyter notebook `liquid_water/300K/H2O_Diffusion.ipynb` to plot the MSD and diffusion coefficients.
 An alternative approach to the calculation of the diffusion coefficient is described in the Jupyter Notebook ```liquid_water/optional_nve_diffusion/H2O_Diffusion.ipynb```.
 
 The last task of this section is to **visualize the trajectory** using [Ovito](https://www.ovito.org/).
@@ -129,12 +143,14 @@ Snapshots of these phases are shown below.
 
 You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
 As in the exercise above, first run the MD simulations in each folder.
+All the three tasks consist of 1296 atoms, and each of them costs about *10 minutes* to run.
 Then plot the radial distribution functions, the diffusion coefficient, and visualize the trajectories.
 What are the main differences between these three phases?
 What phenomena are captured by ab initio machine learning models that empirical potentials do not describe?
 
 ## Part 2: Learning the potential energy surface
 
+*This part takes about 10 minutes to finish.*
 In the previous section, we learned to run MD simulations using deep potentials.
 Let's now see the tools available to create our own ab initio machine learning models.
 Most models are trained in an iterative fashion using an active (or [concurrent](https://arxiv.org/abs/1910.12690)) learning approach.
