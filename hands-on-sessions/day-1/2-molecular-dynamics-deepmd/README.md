@@ -144,14 +144,14 @@ Snapshots of these phases are shown below.
 
 You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
 As in the exercise above, first run the MD simulations in each folder.
-All the three tasks consist of 1296 atoms, and each of them costs about **10 minutes** to run.
+All the three tasks consist of 1296 atoms, and each of them takes about **10 minutes** to run.
 Then plot the radial distribution functions, the diffusion coefficient, and visualize the trajectories.
 What are the main differences between these three phases?
 What phenomena are captured by ab initio machine learning models that empirical potentials do not describe?
 
 ## Part 2: Learning the potential energy surface
 
-**This part takes about 10 minutes to finish.**
+**This part takes about 20 minutes to finish.**
 
 In the previous section, we learned to run MD simulations using deep potentials.
 Let's now see the tools available to create our own ab initio machine learning models.
