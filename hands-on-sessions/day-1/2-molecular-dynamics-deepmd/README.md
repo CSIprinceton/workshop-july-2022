@@ -105,6 +105,10 @@ If needed, copy the LAMMPS dump and data files to your local computer using, for
 ```
 scp -P <port> <username>@<remote-machine-address>:~/workshop-july-2022/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/liquid_water/300K/water* .
 ```
+Note that on MacOS, if you need to use `*` in the `scp` command, you need to put the directory in quotes:
+```
+scp -P <port> "<username>@<remote-machine-address>:~/workshop-july-2022/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/liquid_water/300K/water*" .
+```
 Now open the data file using ```ovito water.lammps-data```.
 To load the trajectory use the modifier ```Load trajectory``` and choose the file ```water.lammps-dump-text```.
 You can visualize the trajectory and test modifiers such as ```Create bonds``` and ```Smooth trajectory``` with window size 10.
