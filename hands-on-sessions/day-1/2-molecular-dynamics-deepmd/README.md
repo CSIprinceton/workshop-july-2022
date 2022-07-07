@@ -50,6 +50,7 @@ conda activate deepmd
 lmp -in in.lmp
 ```
 This simulation should take a few minutes to finish.
+On our machine with the V100 GPU, it takes about 5 minutes to run 100000 steps. Since our timestep is 0.5 fs, we generate a 50-ps-long trajectory. 
 We have computed the **radial distribution function** (RDF) on-the-fly in LAMMPS using these lines:
 ```
 compute myRDF all rdf 100 1 1 1 2 2 2
