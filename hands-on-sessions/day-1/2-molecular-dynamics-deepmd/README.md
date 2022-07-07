@@ -64,7 +64,7 @@ Now plot the partial distributions functions O-O, O-H, and H-H that are found in
 For instance, plot column 2 vs 3, 2 vs 5, and 2 vs 7 to get the O-O, O-H, and H-H partial distributions functions, respectively.
 A simple way to plot these functions is using ```gnuplot``` and, for instance, the command,
 ```
-pl "myrdf.txt" u 2:3 w l
+gnuplot --persist -e 'plot "myrdf.txt" u 2:3 w l'
 ```
 Interpret and discuss the meaning of these functions.
 
