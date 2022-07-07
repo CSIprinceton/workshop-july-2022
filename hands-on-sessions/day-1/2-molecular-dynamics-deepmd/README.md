@@ -52,7 +52,7 @@ conda activate deepmd
 lmp -in in.lmp
 ```
 This simulation consists of 432 atoms, and should take a few minutes to finish.
-On our machine with the V100 GPU, it takes about *5 minutes* to run 100000 steps. Since our timestep is 0.5 fs, we generate a 50-ps-long trajectory. 
+On our machine with the V100 GPU, it takes about **5 minutes** to run 100000 steps. Since our timestep is 0.5 fs, we generate a 50-ps-long trajectory. 
 We have computed the **radial distribution function** (RDF) on-the-fly in LAMMPS using these lines:
 ```
 compute myRDF all rdf 100 1 1 1 2 2 2
@@ -144,7 +144,7 @@ Snapshots of these phases are shown below.
 
 You can run the simulations in ```superionic/900K```, ```superionic/1300K```, and ```superionic/1800K``` that correspond to these three phases, respectively.
 As in the exercise above, first run the MD simulations in each folder.
-All the three tasks consist of 1296 atoms, and each of them costs about *10 minutes* to run.
+All the three tasks consist of 1296 atoms, and each of them costs about **10 minutes** to run.
 Then plot the radial distribution functions, the diffusion coefficient, and visualize the trajectories.
 What are the main differences between these three phases?
 What phenomena are captured by ab initio machine learning models that empirical potentials do not describe?
