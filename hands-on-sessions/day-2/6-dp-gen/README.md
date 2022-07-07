@@ -48,16 +48,16 @@ If you are using the virtual machine, we have put everything you need in `$PATH`
 - LAMMPS is compiled with DeePMD and installed in your PATH as `lmp`. This can also be simplified by conda. 
   To install the CPU version for DeePMD-kit and LAMMPS:
   ```bash
-  conda install deepmd-kit=*=*cpu lammps-dp=*=*cpu -c deepmodeling
+  conda install deepmd-kit=*=*cpu lammps -c https://conda.deepmodeling.com
   ```
-  To install the GPU version containing CUDA 10.0:
+  To install the GPU version containing CUDA Toolkit:
   ```bash
-  conda install deepmd-kit=*=*gpu lammps-dp=*=*gpu -c deepmodeling
+  conda install deepmd-kit=*=*gpu lammps -c https://conda.deepmodeling.com
   ```
 - [DP-GEN][6] is also installed in your current python environment and available as `dpgen` in your PATH.
-  This can be installed via conda our pip. For conda,
+  This can be installed via conda or pip. For conda,
   ```bash
-  conda install -c conda-forge dpgen
+  conda install -c https://conda.deepmodeling.com dpgen
   ```
 - Quantum ESPRESSO (QE) is installed with `pw.x` available in your PATH.
 
@@ -75,7 +75,7 @@ We provide three tarballs in this repo, while in this tutorial we would only use
 - **DeePMD-kit and DP-GEN**:
   - **papers**: See [DeePMD-PRL][1] for the original version of Deep Potential Molecular Dynamics. See ([DeepPot-SE-NIPS][2]) for the smooth version, which has gained more popularity. See [DeePCG-JCP][3] about how to develop coarse-grained models based on a similar approach. See [DPGEN-PRM][4] about the active learning procedure for the generation of reliable Deep Potential models.
   - **codes**: All codes are available on Github (https://github.com/deepmodeling). They are open source under the `GNU LGPLv3.0` liscense. In particular, the devel branch of the [deepmd-kit][5] and the [dpgen][6] repos are extremely active. 
-  - **Q&A, discussion, and more information:** we recently lauched a website (http://bbs.deepmd.org/), hoping to better serve the community that uses deep learning tools for molecular simulation. It is still young. Any feedbacks are appreciated. We encourage the students to register and ask questions on the Q&A page.
+  - **Q&A, discussion, and more information:** we use [GitHub Discussions](https://github.com/deepmodeling/deepmd-kit/discussions) for discussion, hoping to better serve the community that uses deep learning tools for molecular simulation. Any feedbacks are appreciated. We encourage the students to register and ask questions on the Q&A page.
 
 [1]: https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.143001
 [2]:http://papers.nips.cc/paper/7696-end-to-end-symmetry-preserving-inter-atomic-potential-energy-model-for-finite-and-extended-systems
