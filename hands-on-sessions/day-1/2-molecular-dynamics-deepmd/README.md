@@ -62,6 +62,10 @@ tail -n 101 h2o.rdf > myrdf.txt
 ``` 
 Now plot the partial distributions functions O-O, O-H, and H-H that are found in ```myrdf.txt```.
 For instance, plot column 2 vs 3, 2 vs 5, and 2 vs 7 to get the O-O, O-H, and H-H partial distributions functions, respectively.
+A simple way to plot these functions is using ```gnuplot``` and, for instance, the command,
+```
+pl "myrdf.txt" u 2:3 w l
+```
 Interpret and discuss the meaning of these functions.
 
 > **_TIP:_** An example of plots obtained using matplolib and jupyter notebooks can be found in ```H2O_RDF.ipynb```.
@@ -98,7 +102,7 @@ An alternative approach to the calculation of the diffusion coefficient is descr
 The last task of this section is to **visualize the trajectory** using [Ovito](https://www.ovito.org/).
 If needed, copy the LAMMPS dump and data files to your local computer using, for instance,
 ```
-scp -P <port> <username>@<remote-machine-address>:~/workshop-july-2022/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/liquid_water/RDF/water* .
+scp -P <port> <username>@<remote-machine-address>:~/workshop-july-2022/hands-on-sessions/day-1/2-molecular-dynamics-deepmd/liquid_water/300K/water* .
 ```
 Now open the data file using ```ovito water.lammps-data```.
 To load the trajectory use the modifier ```Load trajectory``` and choose the file ```water.lammps-dump-text```.
@@ -185,6 +189,7 @@ One is calculating the root mean squared error in the forces and energy using
 ```
 dp test -m <path/to/model>
 ```
+This command has to be executed in a folder where a deepmd system can be found, for instance, ```training/TrainingData/ice-and-liquid```.
 Do errors have the correct order of magnitude? 
 
 We can also analyze the **correlation** between the energies obtained with DFT and inferred using the model.
