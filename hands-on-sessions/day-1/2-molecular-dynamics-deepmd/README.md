@@ -25,7 +25,7 @@ It is assumed that the student is familiar with the linux command line. A workin
 
 ## Part 1: Molecular dynamics simulations 
 
-**This part needs about 1h to finish.**
+**This part needs about 1.5 hours to finish.**
 
 In this part of the tutorial we will show how to calculate the structural and dynamic properties of liquid water and ice using DeePMD and LAMMPS.
 
@@ -151,7 +151,7 @@ What phenomena are captured by ab initio machine learning models that empirical 
 
 ## Part 2: Learning the potential energy surface
 
-**This part takes about 20 minutes to finish.**
+**This part takes about 40 minutes to finish.**
 
 In the previous section, we learned to run MD simulations using deep potentials.
 Let's now see the tools available to create our own ab initio machine learning models.
