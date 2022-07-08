@@ -5,6 +5,8 @@ A Hands-on Introduction to DP-GEN
 #### Session Instructor: Yifan Li
 #### Tutors: Kehan Cai, Ruiqi Gao, Zachary Goldsmith, Dina Kussainova, Yifan Li, Pablo Piaggi, Pinchen Xie, Chunyi Zhang
 
+This tutorial is an updated version of the [initial work](https://github.com/CSIprinceton/workshop-july-2020/tree/master/tutorial/Day-1) by Yixiao Chen.
+
 # Aim and plan
 The aim of this 2-hour hands-on session is to show you how to use DP-GEN at the basic level.
 
