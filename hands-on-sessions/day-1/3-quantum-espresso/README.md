@@ -1,5 +1,7 @@
 # Basics of DFT Calculations with Quantum-ESPRESSO
 
+Designed and written by Zachary K. Goldsmith, Princeton University
+
 Hands-on sessions - Day 1 - July 7, 2022
 
 Fundamentals of using Quantum-ESPRESSO for plane-wave DFT calculations of extended systems.
