@@ -148,7 +148,7 @@ As explained previously, the core line in `run.sh` is the following (ignoring th
 ```bash
 dpgen run param.json machine.json 1> out.log 2>&1 &
 ```
-`dpgen` identifies the current stage by a record file, `record.dpgen`, which will be created and upgraded by codes. Each line contains two number: the first is index of iteration, and the second ,ranging from 0 to 8 , records which stage in each iteration is currently running. Every time it starts, `dpgen` would first examine the existence of this file, and try to restart from it. This is the case in our tutorial, as we are restarting after step `0 2`. On the otherhand, if `record.dpgen` does not exist, dpgen would start from the begining.
+`dpgen` identifies the current stage by a record file, `record.dpgen`, which will be created and upgraded by codes. Each line contains two numbers: the first is index of iteration, and the second ,ranging from 0 to 8 , records which stage in each iteration is currently running. Every time it starts, `dpgen` would first examine the existence of this file, and try to restart from it. This is the case in our tutorial, as we are restarting after step `0 2`. On the otherhand, if `record.dpgen` does not exist, dpgen would start from the begining.
 
 
 For example, 0,1,2 in the second number correspond to `make_train`, `run_train`, `post_train`. `dpgen` will write scripts in `make_train`, run tasks by specific machine in `run_train` and collect results in `post_train`. The record for `model_devi` and `fp` stage follows similar rules.
