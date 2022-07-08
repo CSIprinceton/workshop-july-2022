@@ -38,7 +38,7 @@ kspace_modify   gewald ${BETA} diff ik mesh ${KMESH} ${KMESH} ${KMESH}
 # atoms. "type_associate" associates the real atom type the its
 # corresponding virtual atom type. "bond_type" gives the type of the
 # bond between the real and virtual atoms.
-fix             0 all dplr model ../train/model.pb type_associate 1 3 bond_type 1
+fix             0 all dplr model ./model.pb type_associate 1 3 bond_type 1
 fix_modify      0 virial yes
 
 # compute the temperature of real atoms, excluding virtual atom contribution

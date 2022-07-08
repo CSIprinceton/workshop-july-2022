@@ -186,7 +186,7 @@ The long-range part is calculated by the kspace support of LAMMPS. The kspace_st
 # atoms. "type_associate" associates the real atom type the its
 # corresponding virtual atom type. "bond_type" gives the type of the
 # bond between the real and virtual atoms.
-fix             0 all dplr model ../train/model.pb type_associate 1 3 bond_type 1
+fix             0 all dplr model ./model.pb type_associate 1 3 bond_type 1
 fix_modify      0 virial yes
 ~~~
 The `fix` command `dplr` calculates the position of Wannier Centroids by the DeepWannier model and back-propagates the long-range interaction on virtual atoms to real toms.
@@ -201,5 +201,6 @@ fix_modify      1 temp real_temp press real_press
 ~~~
 The temperature of the system should be computed from the real atoms. The kinetic contribution in the pressure tensor is also computed from the real atoms. The thermostat is applied to only real atoms. 
 
+Make sure to update to the newest version of input script by using `git pull`.
 Finally, we run the simulation by submitting the job using `lmp -in in.lammps`. You will get `water.dump` (trajectory file) and `log.lammps`.
 
