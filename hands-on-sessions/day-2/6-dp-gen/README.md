@@ -1,13 +1,14 @@
 
-Instruction for day 1 of the tutorial
+A Hands-on Introduction to DP-GEN
 ===
-#### July 13 @ Princeton CSI center
-##### Tutors: Yixiao Chen (Princeton PACM), Marcos Calegari Andrade (Princeton CHEM), Linfeng Zhang (Princeton PACM)
+#### July 8, 2022 @ Princeton CSI center
+#### Session Instructor: Yifan Li
+#### Tutors: Kehan Cai, Ruiqi Gao, Zachary Goldsmith, Dina Kussainova, Yifan Li, Pablo Piaggi, Pinchen Xie, Chunyi Zhang
 
 # Aim and plan
 The aim of this 2-hour hands-on session is to show you how to use DP-GEN at the basic level.
 
-We will use the example of a single methane molecule and go through the whole DP-GEN process that 1) uses DeePMD-kit for training; 2) uses LAMMPS to explore the configuration space; and 3) uses QE to do ab initio calculations and prepare the training data. The output will be a uniformly accurate Deep Potential model for the methane molecule.
+We will use the example of a single methane molecule and go through the whole DP-GEN process that 1) uses DeePMD-kit for training; 2) uses LAMMPS to explore the configuration space; and 3) uses QE to do ab initio calculations and prepare the training data. The output will be a uniformly accurate Deep Potential model for the **methane** molecule.
 
 # Learning outcomes
 Once this tutorial is completed, students will be able to:
@@ -23,24 +24,19 @@ wget https://github.com/CSIprinceton/workshop-july-2020/raw/master/tutorial/Day-
 
 To run the DP-GEN example, simply do the following:
 
-1. unzip the file and go into the folder
+1. go into the folder
    ```bash
-   tar -zxvf dpgen-handson-restart.tgz
    cd dpgen-handson-restart
    ```
 2. excute the script (Note here we use `.`(or `source`) to keep the environment. Make sure you have a **white space** between the dot `.` and `run.sh`)
    ```bash
-   . run.sh
+   conda activate deepmd
+   nohup dpgen run param.json machine.json 1> out.log 2>&1 &
    ```
+The first line activates the anaconda environment `deepmd` in which you can run dpgen, LAMMPS, and Quantum Espresso. The second line runs DP-GEN and redirect its output. You can check the status of DP-GEN process by viewing the `out.log` or `dpgen.log` file.
 
-The whole procedure can take 2 hours to finish. So I suggest you start running it right now.
+The whole procedure can take 1.5 hours to finish. So I suggest you start running it right now.
 
-The `run.sh` script has only two lines.
-```bash
-source ./env.sh
-nohup dpgen run param.json machine.json 1> out.log 2>&1 &
-```
-The first line source the `env.sh` file which set up the path variables and python environment. The second line runs DP-GEN and redirect its output. You can check the status of DP-GEN process by viewing the `out.log` or `dpgen.log` file.
 
 ## Environment preparation
 If you are using the virtual machine, we have put everything you need in `$PATH` and prepared the environment in `env.sh`. Otherwise, you have to modify the `env.sh` to make sure the following:
@@ -64,16 +60,15 @@ If you are using the virtual machine, we have put everything you need in `$PATH`
 The PATH settings are just for convenience of this tutorial. In later uses, one do not need to add all of these in PATH, but can specify the locations of the corresponding files in `machine.json`. One can check the one in `dpgen-previous-examples.tgz` for reference.
 
 # Files provided
-We provide three tarballs in this repo, while in this tutorial we would only use `dpgen-handson-restart.tgz`. The content of these tarballs are explained below.
+We provide two folders in this directory, while in this tutorial we would only use `dpgen-handson-restart`. The content of these folders are explained below.
 
-- `dpgen-handson-raw.tgz` This is a minimal version that is runnable on the virtual machine (or any machine has the environment set up correctly).
-- `dpgen-handson-restart.tgz` This is almost the same with the raw version, only that we have run the first training step for you, to save some time. It also exhibits the restart function of DP-GEN.
-- `dpgen-previous-example.tgz` This is not runnable as it depends on the specific environment on our cluster (also the `params.json` is outdated). But one can check its `machine.json` for some real world settings of DP-GEN. Also one can check its `iter.00000*` folders for a previous running result. A tutorial note corresponding to this example can be found [here](https://hackmd.io/vO2fq6YsQ4ek5mYPDUbZGw).
+- `dpgen-handson-raw` This is a minimal version that is runnable on the virtual machine (or any machine has the environment set up correctly). The whole process costs about 2 hours.
+- `dpgen-handson-restart` This is almost the same with the raw version, only that we have run the first training step for you, to save some time. It also exhibits the restart function of DP-GEN.
 
 
 # More resources
 - **DeePMD-kit and DP-GEN**:
-  - **papers**: See [DeePMD-PRL][1] for the original version of Deep Potential Molecular Dynamics. See ([DeepPot-SE-NIPS][2]) for the smooth version, which has gained more popularity. See [DeePCG-JCP][3] about how to develop coarse-grained models based on a similar approach. See [DPGEN-PRM][4] about the active learning procedure for the generation of reliable Deep Potential models.
+  - **papers**: See [DeePMD-PRL][1] for the original version of Deep Potential Molecular Dynamics. See ([DeepPot-SE-NIPS][2]) for the smooth version, which has gained more popularity. See [DeePCG-JCP][3] about how to develop coarse-grained models based on a similar approach. See [DPGEN-PRM][4] about the active learning procedure for the generation of reliable Deep Potential models. See [DP-Materials-Revie][7] for a review paper published in May 2022 about the applications of DeePMD-kit and DP-GEN in materials science.
   - **codes**: All codes are available on Github (https://github.com/deepmodeling). They are open source under the `GNU LGPLv3.0` liscense. In particular, the devel branch of the [deepmd-kit][5] and the [dpgen][6] repos are extremely active. 
   - **Q&A, discussion, and more information:** we use [GitHub Discussions](https://github.com/deepmodeling/deepmd-kit/discussions) for discussion, hoping to better serve the community that uses deep learning tools for molecular simulation. Any feedbacks are appreciated. We encourage the students to register and ask questions on the Q&A page.
 
@@ -83,6 +78,7 @@ We provide three tarballs in this repo, while in this tutorial we would only use
 [4]:https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.3.023804
 [5]:https://github.com/deepmodeling/deepmd-kit
 [6]:https://github.com/deepmodeling/dpgen
+[7]:https://iopscience.iop.org/article/10.1088/2752-5724/ac681d
 
 
 # The DP-GEN example
