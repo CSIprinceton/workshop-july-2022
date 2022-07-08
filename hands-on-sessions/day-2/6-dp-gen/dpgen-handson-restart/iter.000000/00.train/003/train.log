@@ -1,0 +1,671 @@
+WARNING:tensorflow:From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:root:To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, TF_INTRA_OP_PARALLELISM_THREADS, and TF_INTER_OP_PARALLELISM_THREADS.
+WARNING:root:Environment variable KMP_BLOCKTIME is empty. Use the default value 0
+WARNING:root:Environment variable KMP_AFFINITY is empty. Use the default value granularity=fine,verbose,compact,1,0
+/home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/importlib/__init__.py:169: UserWarning: The NumPy module was reloaded (imported a second time). This can in some cases result in small but subtle issues and is discouraged.
+  _bootstrap._exec(spec, module)
+/home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/deepmd/utils/compat.py:346: UserWarning: The argument training->numb_test has been deprecated since v2.0.0. Use training->validation_data->batch_size instead.
+  warnings.warn(
+DEEPMD INFO    Calculate neighbor statistics... (add --skip-neighbor-stat to skip this step)
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 0-5
+OMP: Info #216: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 6 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #287: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #287: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #287: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #287: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 6 cores/socket x 1 thread/core (6 total cores)
+OMP: Info #218: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 0 maps to socket 0 core 0 thread 0 
+OMP: Info #172: KMP_AFFINITY: OS proc 1 maps to socket 0 core 1 thread 0 
+OMP: Info #172: KMP_AFFINITY: OS proc 2 maps to socket 0 core 2 thread 0 
+OMP: Info #172: KMP_AFFINITY: OS proc 3 maps to socket 0 core 3 thread 0 
+OMP: Info #172: KMP_AFFINITY: OS proc 4 maps to socket 0 core 4 thread 0 
+OMP: Info #172: KMP_AFFINITY: OS proc 5 maps to socket 0 core 5 thread 0 
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2095 thread 1 bound to OS proc set 1
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2116 thread 2 bound to OS proc set 2
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2117 thread 3 bound to OS proc set 3
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2118 thread 4 bound to OS proc set 4
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2119 thread 5 bound to OS proc set 5
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2120 thread 6 bound to OS proc set 0
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2096 thread 7 bound to OS proc set 1
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2136 thread 8 bound to OS proc set 2
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2137 thread 9 bound to OS proc set 3
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2138 thread 10 bound to OS proc set 4
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2139 thread 11 bound to OS proc set 5
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 2140 thread 12 bound to OS proc set 0
+DEEPMD INFO    training data with min nbor dist: 1.042950111442311
+DEEPMD INFO    training data with max nbor size: [4 1]
+DEEPMD INFO     _____               _____   __  __  _____           _     _  _   
+DEEPMD INFO    |  __ \             |  __ \ |  \/  ||  __ \         | |   (_)| |  
+DEEPMD INFO    | |  | |  ___   ___ | |__) || \  / || |  | | ______ | | __ _ | |_ 
+DEEPMD INFO    | |  | | / _ \ / _ \|  ___/ | |\/| || |  | ||______|| |/ /| || __|
+DEEPMD INFO    | |__| ||  __/|  __/| |     | |  | || |__| |        |   < | || |_ 
+DEEPMD INFO    |_____/  \___| \___||_|     |_|  |_||_____/         |_|\_\|_| \__|
+DEEPMD INFO    Please read and cite:
+DEEPMD INFO    Wang, Zhang, Han and E, Comput.Phys.Comm. 228, 178-184 (2018)
+DEEPMD INFO    installed to:         /tmp/pip-req-build-gfk0e_bh/_skbuild/linux-x86_64-3.10/cmake-install
+DEEPMD INFO    source :              v2.1.2
+DEEPMD INFO    source brach:         HEAD
+DEEPMD INFO    source commit:        03c87429
+DEEPMD INFO    source commit at:     2022-06-26 14:48:43 +0800
+DEEPMD INFO    build float prec:     double
+DEEPMD INFO    build with tf inc:    /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/tensorflow/include
+DEEPMD INFO    build with tf lib:    
+DEEPMD INFO    ---Summary of the training---------------------------------------
+DEEPMD INFO    running on:           ML-RefVm-129274
+DEEPMD INFO    computing device:     gpu:0
+DEEPMD INFO    CUDA_VISIBLE_DEVICES: unset
+DEEPMD INFO    Count of visible GPU: 1
+DEEPMD INFO    num_intra_threads:    0
+DEEPMD INFO    num_inter_threads:    0
+DEEPMD INFO    -----------------------------------------------------------------
+DEEPMD INFO    ---Summary of DataSystem: training     -----------------------------------------------
+DEEPMD INFO    found 1 system(s):
+DEEPMD INFO                                        system  natoms  bch_sz   n_bch   prob  pbc
+DEEPMD INFO       ../data.init/02.md/sys-0004-0001/deepmd       5       8      25  1.000    T
+DEEPMD INFO    --------------------------------------------------------------------------------------
+DEEPMD INFO    training without frame parameter
+DEEPMD INFO    data stating... (this step may take long time)
+OMP: Info #254: KMP_AFFINITY: pid 1951 tid 1951 thread 0 bound to OS proc set 0
+DEEPMD INFO    built lr
+DEEPMD INFO    built network
+DEEPMD INFO    built training
+DEEPMD WARNING To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, TF_INTRA_OP_PARALLELISM_THREADS, and TF_INTER_OP_PARALLELISM_THREADS.
+DEEPMD INFO    initialize model from scratch
+DEEPMD INFO    start training at lr 1.00e-03 (== 1.00e-03), decay_step 200, decay_rate 0.944061, final lr will be 1.00e-08
+DEEPMD INFO    batch    1000 training time 53.69 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-1000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-1000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-1000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-1000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-1000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-1000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    2000 training time 50.10 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-2000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-2000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-2000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-2000.index
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-2000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-2000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    3000 training time 49.82 s, testing time 0.02 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-3000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-3000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-3000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-3000.index
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-3000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-3000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    4000 training time 50.03 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-4000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-4000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-4000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-4000.index
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-4000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-4000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    5000 training time 50.13 s, testing time 0.03 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-5000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-5000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-5000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-5000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-5000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-5000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    6000 training time 49.59 s, testing time 0.04 s
+WARNING:tensorflow:From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/tensorflow/python/training/saver.py:1066: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+DEEPMD WARNING From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/tensorflow/python/training/saver.py:1066: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-6000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-6000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-6000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-6000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-6000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-6000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    7000 training time 50.01 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-7000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-7000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-7000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-7000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-7000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-7000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    8000 training time 49.63 s, testing time 0.04 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-8000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-8000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-8000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-8000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-8000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-8000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch    9000 training time 49.54 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-9000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-9000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-9000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-9000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-9000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-9000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   10000 training time 49.93 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-10000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-10000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-10000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-10000.index
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-10000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-10000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   11000 training time 50.53 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-11000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-11000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-11000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-11000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-11000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-11000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   12000 training time 50.36 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-12000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-12000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-12000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-12000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-12000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-12000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   13000 training time 49.80 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-13000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-13000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-13000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-13000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-13000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-13000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   14000 training time 49.64 s, testing time 0.05 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-14000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-14000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-14000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-14000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-14000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-14000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   15000 training time 50.04 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-15000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-15000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-15000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-15000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-15000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-15000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   16000 training time 49.91 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-16000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-16000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-16000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-16000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-16000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-16000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   17000 training time 49.49 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-17000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-17000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-17000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-17000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-17000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-17000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   18000 training time 50.06 s, testing time 0.02 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-18000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-18000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-18000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-18000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-18000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-18000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   19000 training time 49.88 s, testing time 0.03 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-19000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-19000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-19000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-19000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-19000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-19000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   20000 training time 49.94 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-20000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-20000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-20000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-20000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-20000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-20000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   21000 training time 49.66 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-21000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-21000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-21000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-21000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-21000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-21000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   22000 training time 49.56 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-22000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-22000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-22000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-22000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-22000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-22000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   23000 training time 49.36 s, testing time 0.03 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-23000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-23000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-23000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-23000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-23000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-23000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   24000 training time 49.99 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-24000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-24000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-24000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-24000.index
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-24000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-24000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   25000 training time 49.96 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-25000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-25000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-25000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-25000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-25000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-25000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   26000 training time 49.73 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-26000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-26000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-26000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-26000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-26000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-26000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   27000 training time 50.07 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-27000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-27000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-27000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-27000.index
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-27000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-27000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   28000 training time 49.70 s, testing time 0.02 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-28000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-28000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-28000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-28000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-28000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-28000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   29000 training time 50.21 s, testing time 0.05 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-29000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-29000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-29000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-29000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-29000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-29000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   30000 training time 49.70 s, testing time 0.03 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-30000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-30000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-30000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-30000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-30000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-30000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   31000 training time 50.28 s, testing time 0.02 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-31000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-31000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-31000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-31000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-31000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-31000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   32000 training time 49.59 s, testing time 0.02 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-32000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-32000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-32000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-32000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-32000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-32000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   33000 training time 49.36 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-33000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-33000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-33000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-33000.index
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-33000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-33000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   34000 training time 49.54 s, testing time 0.03 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-34000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-34000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-34000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-34000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-34000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-34000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   35000 training time 49.95 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-35000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-35000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-35000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-35000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-35000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-35000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   36000 training time 49.55 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-36000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-36000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-36000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-36000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-36000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-36000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   37000 training time 49.75 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-37000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-37000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-37000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-37000.index
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-37000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-37000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   38000 training time 38.33 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-38000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-38000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-38000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-38000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-38000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-38000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   39000 training time 21.42 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-39000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-39000.data-00000-of-00001
+INFO:tensorflow:4300
+DEEPMD INFO    4300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-39000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-39000.meta
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-39000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-39000.index
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    batch   40000 training time 13.01 s, testing time 0.01 s
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-40000.index
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-40000.index
+INFO:tensorflow:0
+DEEPMD INFO    0
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-40000.meta
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-40000.meta
+INFO:tensorflow:1300
+DEEPMD INFO    1300
+INFO:tensorflow:/home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-40000.data-00000-of-00001
+DEEPMD INFO    /home/deepmdlabadmin/workshop-july-2022/hands-on-sessions/day-2/6-dp-gen/dpgen-handson-raw/tmp/a6b5d19bd3ce522854026bc2ed719afe62e0dbe9/003/model.ckpt-40000.data-00000-of-00001
+INFO:tensorflow:5600
+DEEPMD INFO    5600
+DEEPMD INFO    saved checkpoint model.ckpt
+DEEPMD INFO    finished training
+DEEPMD INFO    wall time: 2057.739 s
+WARNING:tensorflow:From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING:root:To get the best performance, it is recommended to adjust the number of threads by setting the environment variables OMP_NUM_THREADS, TF_INTRA_OP_PARALLELISM_THREADS, and TF_INTER_OP_PARALLELISM_THREADS.
+WARNING:root:Environment variable KMP_BLOCKTIME is empty. Use the default value 0
+WARNING:root:Environment variable KMP_AFFINITY is empty. Use the default value granularity=fine,verbose,compact,1,0
+/home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/importlib/__init__.py:169: UserWarning: The NumPy module was reloaded (imported a second time). This can in some cases result in small but subtle issues and is discouraged.
+  _bootstrap._exec(spec, module)
+INFO:tensorflow:Restoring parameters from ./model.ckpt-40000
+DEEPMD INFO    Restoring parameters from ./model.ckpt-40000
+DEEPMD INFO    The following nodes will be frozen: ['model_type', 'descrpt_attr/rcut', 'descrpt_attr/ntypes', 'model_attr/tmap', 'model_attr/model_type', 'model_attr/model_version', 'train_attr/min_nbor_dist', 'train_attr/training_script', 'o_energy', 'o_force', 'o_virial', 'o_atom_energy', 'o_atom_virial', 'fitting_attr/dfparam', 'fitting_attr/daparam']
+WARNING:tensorflow:From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/deepmd/entrypoints/freeze.py:241: convert_variables_to_constants (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.convert_variables_to_constants`
+DEEPMD WARNING From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/deepmd/entrypoints/freeze.py:241: convert_variables_to_constants (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.convert_variables_to_constants`
+WARNING:tensorflow:From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/tensorflow/python/framework/convert_to_constants.py:925: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.extract_sub_graph`
+DEEPMD WARNING From /home/deepmdlabadmin/miniconda3/envs/deepmd/lib/python3.10/site-packages/tensorflow/python/framework/convert_to_constants.py:925: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.extract_sub_graph`
+DEEPMD INFO    1142 ops in the final graph.

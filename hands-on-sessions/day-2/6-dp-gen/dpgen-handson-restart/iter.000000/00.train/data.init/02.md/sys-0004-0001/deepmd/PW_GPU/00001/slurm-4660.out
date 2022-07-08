@@ -1,0 +1,30 @@
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+slurmstepd: error: execve(): /home/mandrade/QE-SVM/bin/pw.x: No such file or directory
+srun: error: traverse-k01g1: tasks 0-27: Exited with exit code 2
+srun: Terminating job step 4660.0
