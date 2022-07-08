@@ -35,7 +35,7 @@ To run the DP-GEN example, simply do the following:
    ```
 The first line activates the anaconda environment `deepmd` in which you can run dpgen, LAMMPS, and Quantum Espresso. The second line runs DP-GEN and redirect its output. You can check the status of DP-GEN process by viewing the `out.log` or `dpgen.log` file.
 
-The whole procedure can take 1.5 hours to finish. So I suggest you start running it right now.
+The whole procedure can take **1.5 hours** to finish. So I suggest you start running it right now.
 
 
 ## Environment preparation
