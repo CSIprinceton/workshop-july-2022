@@ -8,5 +8,14 @@ Yifan Li, Zachary Goldsmith, Chunyi Zhang, Pinchen Xie, Yixiao Chen, and Pablo P
 
 ### Recordings
 - Day 1
+    - Lecture 1:
+    - Lecture 2:
+    - Lecture 3:
 - Day 2
+    - Lecture 4:
+    - Lecture 5:
+    - Lecture 6:
     - Tutorial 4: [Deep Wannier by Pinchen Xie](https://youtu.be/0iDvZimtBQ4)
+    
+### Acknowledgements
+This school was funded and organized by the center [Chemistry in Solution and at Interfaces](https://ccsc.princeton.edu/) funded by the U.S. Department of Energy under award DE-SC0019394. 
