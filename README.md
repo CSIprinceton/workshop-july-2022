@@ -18,4 +18,4 @@ Yifan Li, Zachary Goldsmith, Chunyi Zhang, Pinchen Xie, Yixiao Chen, and Pablo P
     - Tutorial 4: [Deep Wannier by Pinchen Xie](https://youtu.be/0iDvZimtBQ4)
     
 ### Acknowledgements
-This school was funded and organized by the center [Chemistry in Solution and at Interfaces](https://ccsc.princeton.edu/) funded by the U.S. Department of Energy under award DE-SC0019394. 
+This workshop was funded and organized by the center [Chemistry in Solution and at Interfaces](https://ccsc.princeton.edu/) funded by the U.S. Department of Energy under award DE-SC0019394. 
